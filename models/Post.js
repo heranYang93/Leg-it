@@ -11,13 +11,28 @@ Post.init(
       primaryKey: true,
       autoIncrement: true,
     },
+    post_title: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    post_image: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+    },
+    post_video: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+    },
+    post_likes: {
+      type: DataTypes.INTEGER,
+    },
     user_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-    },
-    image: {
-      type: DataTypes.STRING,
-      allowNull: false,
+      references: {
+        model: 'user',
+        key: 'id',
+      },
     },
   },
   {
@@ -25,8 +40,8 @@ Post.init(
     timestamps: true,
     freezeTableName: true,
     underscored: true,
-    modelName: 'user',
+    modelName: 'post',
   }
 );
 
-module.exports = User;
+module.exports = Post;
