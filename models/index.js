@@ -3,6 +3,27 @@ const Post = require('./Post');
 const Like = require('./Like');
 const Comment = require('./Comment');
 
+//Lego and Part // hy
+
+// Lego and Part should have a MANY-TO-MANY relationship;
+// One Lego model has multiple Parts
+// One Part can belong to many Lego model
+const Lego = require('./Lego');
+const Part = require('./Part');
+const LegoPart = require('./LegoPart');
+Lego.belongsToMany(Part, {
+  foreignKey: 'lego_id',
+  through: LegoPart,
+  onDelete: 'CASCADE',
+});
+Part.belongsToMany(Lego, {
+  foreignKey: 'part_id',
+  through: LegoPart,
+  onDelete: 'CASCADE',
+});
+
+//Lego and Parts // hy
+
 User.hasMany(Post, {
   foreignKey: 'user_id',
 });
@@ -43,4 +64,5 @@ User.hasMany(Comment, {
   foreignKey: 'user_id',
 });
 
-module.exports = { User, Post, Like, Comment };
+//added Lego, Part, LegoPart //hy
+module.exports = { User, Post, Like, Comment, Lego, Part, LegoPart };
