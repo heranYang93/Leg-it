@@ -1,10 +1,11 @@
 const router = require('express').Router();
 const { Like, Post } = require('../../models');
 
-router.post('/like/:postId', async (req, res) => {
+router.post('/:postId', async (req, res) => {
   try {
     const { postId } = req.params;
-    const userId = req.session.user_id,
+    console.log(postId);
+    const userId = req.session.user_id;
     const result = await Like.findOne({
       where: { user_id: userId, post_id: postId },
     });
