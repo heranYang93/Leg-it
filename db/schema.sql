@@ -1,2 +1,2 @@
-DROP DATABASE IF EXISTS legoit_db;
-CREATE DATABASE legoit_db;
+DROP DATABASE IF EXISTS leg-it_db;
+CREATE DATABASE leg-it_db;
