@@ -25,7 +25,7 @@ router.post('/signup', async (req, res) => {
         id: user.get('id'),
         username: user.get('username'),
       };
-      res.json({ success: true });
+      res.status(200).json({ success: true });
     });
   } catch (err) {
     res.status(400).json(err);
