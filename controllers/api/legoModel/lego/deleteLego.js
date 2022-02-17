@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Lego, LegoPart } = require('../../../../models');
 const withAuth = require('../../../../utils/auth');
 
-router.delete('/:id', withAuth, async (req, res) => {
+router.delete('/:id', async (req, res) => {
   try {
     //update lego model itself and get the lego model id
     const deleteLegoModel = await Lego.destroy({
@@ -12,8 +12,8 @@ router.delete('/:id', withAuth, async (req, res) => {
     const deleteAssociation = LegoPart.destroy({
       where: { lego_id: req.params.id },
     });
-
-    res.status(200);
+    console.log('in delete lego route');
+    res.status(200).json(deleteAssociation).json(deleteLegoModel);
   } catch (err) {
     console.error(err.message);
   }

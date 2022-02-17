@@ -1,10 +1,10 @@
 const router = require('express').Router();
 
-const createPart = require('./createLego');
+const createPart = require('./createPart');
 const editPart = require('./editPart');
-const deletePart = require('./deleteLego');
-const getPart = require('./getLego');
-const getPartWithLego = require('./getLegoWithParts');
+const deletePart = require('./deletePart');
+const getPart = require('./getPart');
+const getPartWithLego = require('./getPartWithLegos');
 
 router.use('/create', createPart);
 router.use('/edit', editPart);

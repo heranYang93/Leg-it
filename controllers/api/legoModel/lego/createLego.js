@@ -6,7 +6,7 @@ const withAuth = require('../../../../utils/auth');
 // request body:
 //{legoName, legoImage, legoVideo, legoPostId, [partIdArr]}
 
-router.post('/', withAuth, async (req, res) => {
+router.post('/', async (req, res) => {
   try {
     //variables with unclear sources
     //Check if some variables come from
@@ -32,7 +32,9 @@ router.post('/', withAuth, async (req, res) => {
         };
       })
     );
-    res.status(200);
+    res.status(200).json(newAssociation);
+
+    console.log('in create lego route');
   } catch (err) {
     console.error(err.message);
   }

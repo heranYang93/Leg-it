@@ -5,7 +5,7 @@ const withAuth = require('../../../../utils/auth');
 // This route create a Lego model
 // request body:
 //{legoName, legoImage, legoVideo, legoPostId, [partIdArr]}
-router.post('/', withAuth, async (req, res) => {
+router.post('/', async (req, res) => {
   try {
     //variables with unclear sources
     //Check if some variables come from
@@ -31,7 +31,8 @@ router.post('/', withAuth, async (req, res) => {
         };
       })
     );
-    res.status(200);
+    console.log('in edit lego route');
+    res.status(200).json(newAssociation);
   } catch (err) {
     console.error(err.message);
   }
