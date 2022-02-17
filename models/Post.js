@@ -7,7 +7,7 @@ Post.init(
   {
     id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
       primaryKey: true,
       autoIncrement: true,
     },
@@ -17,18 +17,16 @@ Post.init(
     },
     post_image: {
       type: DataTypes.TEXT,
-      allowNull: false,
+      allowNull: true,
     },
     post_video: {
       type: DataTypes.TEXT,
-      allowNull: false,
-    },
-    post_likes: {
-      type: DataTypes.INTEGER,
+      allowNull: true,
     },
     user_id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
+      defaultValue: 5,
       references: {
         model: 'user',
         key: 'id',

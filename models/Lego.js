@@ -7,7 +7,7 @@ Lego.init(
   {
     id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
       primaryKey: true,
       autoIncrement: true,
     },
@@ -23,17 +23,19 @@ Lego.init(
       type: DataTypes.STRING,
       allowNull: true,
     },
-    post_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'post',
-        key: 'id',
-      },
-    },
+    // post_id: {
+    //   type: DataTypes.INTEGER,
+    //   allowNull: true,
+    //   defaultValue: 5,
+    //   references: {
+    //     model: 'post',
+    //     key: 'id',
+    //   },
+    // },
   },
   {
     sequelize,
+    timestamps: false,
     freezeTableName: true,
     underscored: true,
     modelName: 'lego',

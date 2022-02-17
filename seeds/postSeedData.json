@@ -1,38 +1,56 @@
 [
-    {
-        "post_title": "article1",
-        "blog_body": "random text",
-        "blog_description": "This is a random description",
-        "user_id": "1"
-    },
-    {
-        "blog_title": "article2",
-        "blog_body": "random text for testing",
-        "blog_description": "This is a random description",
-        "user_id": "1"
-    },
-    {
-        "blog_title": "article3",
-        "blog_body": "random text for testing",
-        "blog_description": "This is a random description",
-        "user_id": "2"
-    },
-    {
-        "blog_title": "article4",
-        "blog_body": "random text for testing",
-        "blog_description": "This is a random description",
-        "user_id": "3"
-    },
-    {
-        "blog_title": "article5",
-        "blog_body": "random text for testing",
-        "blog_description": "This is a random description",
-        "user_id": "4"
-    },
-    {
-        "blog_title": "article6",
-        "blog_body": "random text for testing",
-        "blog_description": "This is a random description",
-        "user_id": "5"
-    }
+  {
+    "post_title": "article 1",
+    "post_image": "random text",
+    "post_video": "This is a random description",
+    "user_id": 2
+  },
+  {
+    "post_title": "article 1",
+    "post_image": "random text",
+    "post_video": "This is a random description",
+    "user_id": 3
+  },
+  {
+    "post_title": "article 1",
+    "post_image": "random text",
+    "post_video": "This is a random description",
+    "user_id": 4
+  },
+  {
+    "post_title": "article 1",
+    "post_image": "random text",
+    "post_video": "This is a random description",
+    "user_id": 5
+  },
+  {
+    "post_title": "article 1",
+    "post_image": "random text",
+    "post_video": "This is a random description",
+    "user_id": 6
+  },
+  {
+    "post_title": "article 1",
+    "post_image": "random text",
+    "post_video": "This is a random description",
+    "user_id": 7
+  },
+  {
+    "post_title": "article 1",
+    "post_image": "random text",
+    "post_video": "This is a random description",
+    "user_id": 8
+  },
+  {
+    "post_title": "article 1",
+    "post_image": "random text",
+    "post_video": "This is a random description",
+    "user_id": 9
+  },
+  {
+    "post_title": "article 1",
+    "post_image": "random text",
+    "post_video": "This is a random description",
+    "user_id": 10
+  }
 ]
