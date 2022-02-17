@@ -5,7 +5,6 @@ const withAuth = require('../../../../utils/auth');
 // This route create a Lego model
 // request body:
 //{legoName, legoImage, legoVideo, legoPostId, [partIdArr]}
-
 router.post('/', withAuth, async (req, res) => {
   try {
     //variables with unclear sources

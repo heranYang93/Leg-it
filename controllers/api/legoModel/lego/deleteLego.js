@@ -1,10 +1,8 @@
 const router = require('express').Router();
 const { Lego, LegoPart } = require('../../../../models');
+const withAuth = require('../../../../utils/auth');
 
-//Authentication method tbd
-// const withAuth = require('../../../../utils/auth');
-
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', withAuth, async (req, res) => {
   try {
     //update lego model itself and get the lego model id
     const deleteLegoModel = await Lego.destroy({
@@ -20,3 +18,5 @@ router.delete('/:id', async (req, res) => {
     console.error(err.message);
   }
 });
+
+module.exports = router;

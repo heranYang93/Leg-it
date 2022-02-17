@@ -5,7 +5,7 @@ const pageToRender = 'lego';
 //Authentication method tbd
 // const withAuth = require('../../../../utils/auth');
 
-router.get('/:id', async (req, res) => {
+router.get('/:id', withAuth, async (req, res) => {
   try {
     //update lego model itself and get the lego model id
     const getLegoModelWithParts = await Lego.findByPk(req.params.id, {
@@ -19,3 +19,5 @@ router.get('/:id', async (req, res) => {
     console.error(err.message);
   }
 });
+
+module.exports = router;
