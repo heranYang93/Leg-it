@@ -25,6 +25,7 @@ Post.init(
     },
     post_likes: {
       type: DataTypes.INTEGER,
+      defaultValue: null,
     },
     user_id: {
       type: DataTypes.INTEGER,
