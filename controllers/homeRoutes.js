@@ -11,10 +11,14 @@ router.get('/posts', async (req, res) => {
             exclude: ['password', 'email'],
           },
         },
+        {
+          model: Like,
+        },
       ],
       order: [['updatedAt', 'DESC']],
     });
     const postsData = dbpostsData.map((el) => el.get({ plain: true }));
+    console.log(postsData);
     res.render('posts', {
       title: 'Lego Posts',
       postsData: postsData,
