@@ -3,8 +3,8 @@ const pageToRender = 'theme';
 // <<< hy
 
 const router = require('express').Router();
-const { Theme, Set } = require('../../../../models');
-const withAuth = require('../../../../utils/auth');
+const { Theme, Set } = require('../../../models');
+const withAuth = require('../../../utils/auth');
 
 router.get('/:id', async (req, res) => {
   try {

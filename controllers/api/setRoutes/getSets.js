@@ -4,10 +4,10 @@ const pageToRender = 'lego';
 // <<< hy
 
 const router = require('express').Router();
-const { Set } = require('../../../../models');
-const withAuth = require('../../../../utils/auth');
+const { Set } = require('../../../models');
+const withAuth = require('../../../utils/auth');
 
-router.get('/:id', async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     //update lego model itself and get the lego model id
     const getAllSets = await Set.findAll();

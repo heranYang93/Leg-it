@@ -8,10 +8,12 @@ router.use('/like', likeRoutes);
 router.use('/users', userRoutes);
 
 //hy -  Set, Theme >>>
-const setRoutes = require('./set');
+const setRoutes = require('./setRoutes');
 const themeRoutes = require('./themeRoutes');
+const tagRoutes = require('./tagRoutes');
 router.use('/set', setRoutes);
 router.use('/theme', themeRoutes);
+router.use('/tag', tagRoutes);
 //<<< hy - Set, Theme
 
 module.exports = router;

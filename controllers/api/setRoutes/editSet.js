@@ -1,16 +1,16 @@
 const router = require('express').Router();
-const { Set } = require('../../../../models');
-const withAuth = require('../../../../utils/auth');
+const { Set } = require('../../../models');
+const withAuth = require('../../../utils/auth');
 
 router.post('/:id', async (req, res) => {
   try {
-    const editSetModel = await Set.create(
+    const editSetModel = await Set.update(
       {
         name: req.body.setName,
         image: req.body.setImage,
         description: req.body.description,
         post_id: req.body.setPostId,
-        theme_id: req.body.theme_id,
+        theme_id: req.body.themeId,
       },
       {
         where: {
@@ -19,10 +19,8 @@ router.post('/:id', async (req, res) => {
       }
     );
 
-    const editedSetModel = editSetModel.get({ plain: true });
-
     console.log(`IN EDIT SET ROUTE, EDITED SET ID:${req.params.id}`);
-    res.status(200).json(editedSetModel);
+    res.status(200).json(editSetModel);
   } catch (err) {
     console.error(err.message);
   }

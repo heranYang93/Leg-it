@@ -1,6 +1,6 @@
 const router = require('express').Router();
-const { Tag, TagToPost } = require('../../../../models');
-const withAuth = require('../../../../utils/auth');
+const { Tag, TagToPost } = require('../../../models');
+const withAuth = require('../../../utils/auth');
 
 router.delete('/:id', async (req, res) => {
   try {

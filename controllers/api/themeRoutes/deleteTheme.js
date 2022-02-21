@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Theme } = require('../../../../models');
+const { Theme } = require('../../../models');
 const adminAuth = require('../../../utils/admin');
 
 router.delete('/:id', async (req, res) => {

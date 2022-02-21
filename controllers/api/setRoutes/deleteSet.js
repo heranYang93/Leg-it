@@ -1,6 +1,6 @@
 const router = require('express').Router();
-const { Set } = require('../../../../models');
-const withAuth = require('../../../../utils/auth');
+const { Set } = require('../../../models');
+const withAuth = require('../../../utils/auth');
 
 router.delete('/:id', async (req, res) => {
   try {
@@ -8,11 +8,10 @@ router.delete('/:id', async (req, res) => {
     const deleteSetModel = await Set.destroy({
       where: { id: req.params.id },
     });
-    const deleteSetResult = deleteSetModel.get({ plain: true });
 
-    console.log(`IN DELETE SET ROUTE, DELETED SET ID:${deleteSetResult.id}`);
+    console.log(`IN DELETE SET ROUTE, DELETED SET ID:${req.params.id}`);
 
-    res.status(200).json(deleteSetResult);
+    res.status(200).json(deleteSetModel);
   } catch (err) {
     console.error(err.message);
   }

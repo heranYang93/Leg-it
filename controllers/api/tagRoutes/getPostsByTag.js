@@ -3,8 +3,8 @@ const pageToRender = 'tag';
 // <<< hy for debugging
 
 const router = require('express').Router();
-const { Post, Tag } = require('../../../../models');
-const withAuth = require('../../../../utils/auth');
+const { Post, Tag } = require('../../../models');
+const withAuth = require('../../../utils/auth');
 
 router.get('/:id', async (req, res) => {
   try {

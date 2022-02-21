@@ -17,9 +17,8 @@ router.post('/', async (req, res) => {
     const newSetModel = await Set.create({
       name: req.body.setName,
       image: req.body.setImage,
-      description: req.body.description,
       post_id: req.body.setPostId,
-      theme_id: req.body.theme_id,
+      theme_id: req.body.themeId,
     });
 
     const newSet = newSetModel.get({ plain: true });
