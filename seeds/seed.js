@@ -26,10 +26,10 @@ const seedDatabase = async () => {
     returning: true,
   });
   const seedPost = await Post.bulkCreate(postSeedData);
-  const seedTheme = await Theme.bulkCreate(themeSeedData);
-  const seedSet = await Set.bulkCreate(setSeedData);
   const seedTag = await Tag.bulkCreate(tagSeedData);
   const seedTagToPost = await TagToPost.bulkCreate(tagToPostSeedData);
+  const seedTheme = await Theme.bulkCreate(themeSeedData);
+  const seedSet = await Set.bulkCreate(setSeedData);
   process.exit(0);
 };
 

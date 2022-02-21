@@ -10,21 +10,26 @@ const Comment = require('./Comment');
 const Set = require('./Set');
 Post.hasOne(Set, {
   foreignKey: 'post_id',
+});
+Set.belongsTo(Post, {
+  foreignKey: 'post_id',
   onDelete: 'CASCADE',
 });
-Set.belongsTo(Post, { foreignKey: 'post_id' });
 
 //2. Theme
-// Theme:Set = 1:n
+// Theme:Set = 1:N
 const Theme = require('./Theme');
 Theme.hasMany(Set, {
   foreignKey: 'theme_id',
+});
+
+Set.belongsTo(Theme, {
+  foreignKey: 'theme_id',
   onDelete: 'CASCADE',
 });
-Set.belongsTo(Theme, { foreignKey: 'theme_id' });
 
 //3. Tag
-// Post:Tag = n:n
+// Post:Tag = N:M
 const Tag = require('./Tag');
 const TagToPost = require('./TagToPost');
 Post.belongsToMany(Tag, {
