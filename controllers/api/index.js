@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const postRoutes = require('./postRoutes');
-const setRoutes = require('./set');
 const likeRoutes = require('./likeRoutes');
 const userRoutes = require('./userRoutes');
 
@@ -8,8 +7,11 @@ router.use('/posts', postRoutes);
 router.use('/like', likeRoutes);
 router.use('/users', userRoutes);
 
-//hy - import lego route >>>
+//hy -  Set, Theme >>>
+const setRoutes = require('./set');
+const themeRoutes = require('./themeRoutes');
 router.use('/set', setRoutes);
-//<<< hy - import lego route
+router.use('/theme', themeRoutes);
+//<<< hy - Set, Theme
 
 module.exports = router;

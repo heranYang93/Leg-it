@@ -16,7 +16,7 @@ Set.init(
       allowNull: false,
     },
     image: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: true,
     },
     post_id: {
@@ -31,7 +31,6 @@ Set.init(
     theme_id: {
       type: DataTypes.INTEGER,
       allowNull: true,
-      defaultValue: 5,
       references: {
         model: 'theme',
         key: 'id',

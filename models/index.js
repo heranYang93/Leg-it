@@ -22,13 +22,12 @@ Theme.hasMany(Set, {
   onDelete: 'CASCADE',
 });
 Set.belongsTo(Theme, { foreignKey: 'theme_id' });
-// <<< hy
 
 //3. Tag
 // Post:Tag = n:n
 const Tag = require('./Tag');
 const TagToPost = require('./TagToPost');
-Post.hasMany(Tag, {
+Post.belongsToMany(Tag, {
   foreignKey: 'post_id',
   through: TagToPost,
 });
@@ -36,9 +35,8 @@ Tag.belongsToMany(Post, {
   foreignKey: 'tag_id',
   through: TagToPost,
 });
-// <<< hy
 
-//Lego and Parts // hy
+// <<< hy
 
 User.hasMany(Post, {
   foreignKey: 'user_id',
@@ -81,4 +79,13 @@ User.hasMany(Comment, {
 });
 
 //added Lego, Part, LegoPart //hy
-module.exports = { User, Post, Like, Comment, Lego, Part, LegoPart };
+module.exports = {
+  User,
+  Post, //hy
+  Like,
+  Comment,
+  Theme, //hy
+  Set, //hy
+  Tag, //hy
+  TagToPost, //hy
+};

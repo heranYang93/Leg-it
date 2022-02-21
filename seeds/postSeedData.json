@@ -3,54 +3,120 @@
     "post_title": "article 1",
     "post_image": "random text",
     "post_video": "This is a random description",
+    "user_id": 1
+  },
+  {
+    "post_title": "article 2",
+    "post_image": "random text",
+    "post_video": "This is a random description",
     "user_id": 2
   },
   {
-    "post_title": "article 1",
+    "post_title": "article 3",
     "post_image": "random text",
     "post_video": "This is a random description",
     "user_id": 3
   },
   {
-    "post_title": "article 1",
+    "post_title": "article 4",
     "post_image": "random text",
     "post_video": "This is a random description",
     "user_id": 4
   },
   {
-    "post_title": "article 1",
+    "post_title": "article 5",
     "post_image": "random text",
     "post_video": "This is a random description",
     "user_id": 5
   },
   {
-    "post_title": "article 1",
+    "post_title": "article 6",
     "post_image": "random text",
     "post_video": "This is a random description",
     "user_id": 6
   },
   {
-    "post_title": "article 1",
+    "post_title": "article 7",
     "post_image": "random text",
     "post_video": "This is a random description",
     "user_id": 7
   },
   {
-    "post_title": "article 1",
+    "post_title": "article 8",
     "post_image": "random text",
     "post_video": "This is a random description",
     "user_id": 8
   },
   {
-    "post_title": "article 1",
+    "post_title": "article 10",
     "post_image": "random text",
     "post_video": "This is a random description",
     "user_id": 9
   },
   {
-    "post_title": "article 1",
+    "post_title": "article 10",
     "post_image": "random text",
     "post_video": "This is a random description",
     "user_id": 10
+  },
+  {
+    "post_title": "article 11",
+    "post_image": "random text",
+    "post_video": "This is a random description",
+    "user_id": 11
+  },
+  {
+    "post_title": "article 12",
+    "post_image": "random text",
+    "post_video": "This is a random description",
+    "user_id": 12
+  },
+  {
+    "post_title": "article 13",
+    "post_image": "random text",
+    "post_video": "This is a random description",
+    "user_id": 13
+  },
+  {
+    "post_title": "article 14",
+    "post_image": "random text",
+    "post_video": "This is a random description",
+    "user_id": 14
+  },
+  {
+    "post_title": "article 15",
+    "post_image": "random text",
+    "post_video": "This is a random description",
+    "user_id": 15
+  },
+  {
+    "post_title": "article 16",
+    "post_image": "random text",
+    "post_video": "This is a random description",
+    "user_id": 16
+  },
+  {
+    "post_title": "article 17",
+    "post_image": "random text",
+    "post_video": "This is a random description",
+    "user_id": 17
+  },
+  {
+    "post_title": "article 18",
+    "post_image": "random text",
+    "post_video": "This is a random description",
+    "user_id": 18
+  },
+  {
+    "post_title": "article 19",
+    "post_image": "random text",
+    "post_video": "This is a random description",
+    "user_id": 19
+  },
+  {
+    "post_title": "article 10",
+    "post_image": "random text",
+    "post_video": "This is a random description",
+    "user_id": 20
   }
 ]
