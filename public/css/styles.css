@@ -2,7 +2,7 @@
 
 @import url(https://fonts.googleapis.com/css?family=Raleway);
 .fig {
-  width: 400px;
+  width: 300px;
   color: white;
   font-family: 'Raleway', sans-serif;
   border-radius: 10px;
@@ -41,7 +41,6 @@
   height: 100%;
   z-index: 1;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   transform: translateY(-20px);
@@ -49,19 +48,10 @@
   transition: all 0.25s ease;
 }
 
-.fig h3,
-.fig h5 {
-  margin: 0;
-  letter-spacing: 1px;
-}
 .fig h3 {
   text-transform: uppercase;
   font-weight: 400;
-  margin-bottom: 5px;
-}
-.fig h5 {
-  background-color: #ae895d;
-  padding: 3px 10px;
+  margin: 2rem;
 }
 
 .fig:hover .caption {
