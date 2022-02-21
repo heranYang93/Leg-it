@@ -14,6 +14,9 @@ router.get('/posts', async (req, res) => {
         {
           model: Like,
         },
+        {
+          model: Comment,
+        },
       ],
       order: [['updatedAt', 'DESC']],
     });
