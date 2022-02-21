@@ -1,4 +1,5 @@
 const sequelize = require('../config/connection');
+
 const {
   User,
   Post,
@@ -20,13 +21,15 @@ const themeSeedData = require('./themeSeedData.json');
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
 
-  const seedUser = await User.bulkCreate(userSeedData);
+  const seedUser = await User.bulkCreate(userSeedData, {
+    individualHooks: true,
+    returning: true,
+  });
   const seedPost = await Post.bulkCreate(postSeedData);
   const seedTheme = await Theme.bulkCreate(themeSeedData);
   const seedSet = await Set.bulkCreate(setSeedData);
   const seedTag = await Tag.bulkCreate(tagSeedData);
   const seedTagToPost = await TagToPost.bulkCreate(tagToPostSeedData);
-
   process.exit(0);
 };
 
