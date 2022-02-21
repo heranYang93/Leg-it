@@ -15,14 +15,6 @@ Post.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    post_image: {
-      type: DataTypes.TEXT,
-      allowNull: true,
-    },
-    post_video: {
-      type: DataTypes.TEXT,
-      allowNull: true,
-    },
     user_id: {
       type: DataTypes.INTEGER,
       allowNull: true,

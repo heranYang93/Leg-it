@@ -1,8 +1,12 @@
 const router = require('express').Router();
 const postRoutes = require('./postRoutes');
-const legoRoutes = require('./set');
+const setRoutes = require('./set');
+const likeRoutes = require('./likeRoutes');
+const userRoutes = require('./userRoutes');
 
 router.use('/posts', postRoutes);
+router.use('/like', likeRoutes);
+router.use('/users', userRoutes);
 
 //hy - import lego route >>>
 router.use('/set', setRoutes);
