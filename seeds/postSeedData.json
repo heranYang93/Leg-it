@@ -1,38 +1,44 @@
 [
     {
-        "post_title": "article1",
-        "blog_body": "random text",
-        "blog_description": "This is a random description",
+        "post_title": "Anakin's Jedi Starfighter 1",
+        "post_image": "https://cdn.rebrickable.com/media/thumbs/sets/7669-1/65724.jpg/1000x800p.jpg?1638649634.9827278",
+        "post_video": "https://youtu.be/nVUR93yK6x8",
+        "post_likes": "0",
         "user_id": "1"
     },
     {
-        "blog_title": "article2",
-        "blog_body": "random text for testing",
-        "blog_description": "This is a random description",
+        "post_title": "Anakin's Jedi Starfighter 2",
+        "post_image": "https://cdn.rebrickable.com/media/thumbs/sets/7669-1/65724.jpg/1000x800p.jpg?1638649634.9827278",
+        "post_video": "https://youtu.be/nVUR93yK6x8",
+        "post_likes": "0",
         "user_id": "1"
     },
     {
-        "blog_title": "article3",
-        "blog_body": "random text for testing",
-        "blog_description": "This is a random description",
+        "post_title": "Anakin's Jedi Starfighter 3",
+        "post_image": "https://cdn.rebrickable.com/media/thumbs/sets/7669-1/65724.jpg/1000x800p.jpg?1638649634.9827278",
+        "post_video": "https://youtu.be/nVUR93yK6x8",
+        "post_likes": "0",
         "user_id": "2"
     },
     {
-        "blog_title": "article4",
-        "blog_body": "random text for testing",
-        "blog_description": "This is a random description",
+        "post_title": "Anakin's Jedi Starfighter 4",
+        "post_image": "https://cdn.rebrickable.com/media/thumbs/sets/7669-1/65724.jpg/1000x800p.jpg?1638649634.9827278",
+        "post_video": "https://youtu.be/nVUR93yK6x8",
+        "post_likes": "0",
         "user_id": "3"
     },
     {
-        "blog_title": "article5",
-        "blog_body": "random text for testing",
-        "blog_description": "This is a random description",
+        "post_title": "Anakin's Jedi Starfighter 5",
+        "post_image": "https://cdn.rebrickable.com/media/thumbs/sets/7669-1/65724.jpg/1000x800p.jpg?1638649634.9827278",
+        "post_video": "https://youtu.be/nVUR93yK6x8",
+        "post_likes": "0",
         "user_id": "4"
     },
     {
-        "blog_title": "article6",
-        "blog_body": "random text for testing",
-        "blog_description": "This is a random description",
+        "post_title": "Anakin's Jedi Starfighter 6",
+        "post_image": "https://cdn.rebrickable.com/media/thumbs/sets/7669-1/65724.jpg/1000x800p.jpg?1638649634.9827278",
+        "post_video": "https://youtu.be/nVUR93yK6x8",
+        "post_likes": "0",
         "user_id": "5"
     }
 ]
