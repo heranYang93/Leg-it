@@ -19,6 +19,7 @@ router.post('/', async (req, res) => {
       image: req.body.setImage,
       description: req.body.description,
       post_id: req.body.setPostId,
+      theme_id: req.body.theme_id,
     });
 
     const newSet = newSetModel.get({ plain: true });

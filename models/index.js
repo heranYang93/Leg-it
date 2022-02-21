@@ -3,12 +3,40 @@ const Post = require('./Post');
 const Like = require('./Like');
 const Comment = require('./Comment');
 
-//Lego and Part // hy
+// >>> hy
 
-// Lego and Part should have a MANY-TO-MANY relationship;
-// One Lego model has multiple Parts
-// One Part can belong to many Lego model
+//1. Set
+// Post:Set = 1:1
 const Set = require('./Set');
+Post.hasOne(Set, {
+  foreignKey: 'post_id',
+  onDelete: 'CASCADE',
+});
+Set.belongsTo(Post, { foreignKey: 'post_id' });
+
+//2. Theme
+// Theme:Set = 1:n
+const Theme = require('./Theme');
+Theme.hasMany(Set, {
+  foreignKey: 'theme_id',
+  onDelete: 'CASCADE',
+});
+Set.belongsTo(Theme, { foreignKey: 'theme_id' });
+// <<< hy
+
+//3. Tag
+// Post:Tag = n:n
+const Tag = require('./Tag');
+const TagToPost = require('./TagToPost');
+Post.hasMany(Tag, {
+  foreignKey: 'post_id',
+  through: TagToPost,
+});
+Tag.belongsToMany(Post, {
+  foreignKey: 'tag_id',
+  through: TagToPost,
+});
+// <<< hy
 
 //Lego and Parts // hy
 

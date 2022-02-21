@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Set extends Model {}
+class TagToPost extends Model {}
 
-Set.init(
+TagToPost.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -11,40 +11,28 @@ Set.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    image: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
-    post_id: {
+    tag_id: {
       type: DataTypes.INTEGER,
-      allowNull: true,
-      defaultValue: 5,
       references: {
-        model: 'post',
+        model: 'tag',
         key: 'id',
       },
     },
-    theme_id: {
+    post_id: {
       type: DataTypes.INTEGER,
-      allowNull: true,
-      defaultValue: 5,
       references: {
-        model: 'theme',
+        model: 'post',
         key: 'id',
       },
     },
   },
   {
     sequelize,
-    timestamps: false,
+    timestamps: true,
     freezeTableName: true,
     underscored: true,
-    modelName: 'set',
+    modelName: 'tag-to-post',
   }
 );
 
-module.exports = Set;
+module.exports = TagToPost;
