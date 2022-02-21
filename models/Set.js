@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class LegoPart extends Model {}
+class Set extends Model {}
 
-LegoPart.init(
+Set.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -11,19 +11,20 @@ LegoPart.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    lego_id: {
-      type: DataTypes.INTEGER,
+    name: {
+      type: DataTypes.STRING,
       allowNull: false,
-      references: {
-        model: 'lego',
-        key: 'id',
-      },
     },
-    part_id: {
+    image: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    post_id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
+      defaultValue: 5,
       references: {
-        model: 'part',
+        model: 'post',
         key: 'id',
       },
     },
@@ -33,8 +34,8 @@ LegoPart.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'legoPart',
+    modelName: 'set',
   }
 );
 
-module.exports = LegoPart;
+module.exports = Set;

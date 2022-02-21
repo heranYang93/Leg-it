@@ -8,19 +8,7 @@ const Comment = require('./Comment');
 // Lego and Part should have a MANY-TO-MANY relationship;
 // One Lego model has multiple Parts
 // One Part can belong to many Lego model
-const Lego = require('./Lego');
-const Part = require('./Part');
-const LegoPart = require('./LegoPart');
-Lego.belongsToMany(Part, {
-  foreignKey: 'lego_id',
-  through: LegoPart,
-  onDelete: 'CASCADE',
-});
-Part.belongsToMany(Lego, {
-  foreignKey: 'part_id',
-  through: LegoPart,
-  onDelete: 'CASCADE',
-});
+const Set = require('./Set');
 
 //Lego and Parts // hy
 
