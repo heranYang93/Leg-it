@@ -8,13 +8,10 @@ router.delete('/:id', async (req, res) => {
     const deleteThemeModel = await Theme.destroy({
       where: { id: req.params.id },
     });
-    const deleteThemeResult = deleteThemeModel.get({ plain: true });
 
-    console.log(
-      `IN DELETE THEME ROUTE, DELETED THEME ID:${deleteThemeResult.id}`
-    );
+    console.log(`IN DELETE THEME ROUTE, DELETED THEME ID:${req.params.id}`);
 
-    res.status(200).json(deleteThemeResult);
+    res.status(200).json(deleteThemeModel);
   } catch (err) {
     console.error(err.message);
   }

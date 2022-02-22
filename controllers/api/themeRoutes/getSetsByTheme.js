@@ -9,11 +9,11 @@ const withAuth = require('../../../utils/auth');
 router.get('/:id', async (req, res) => {
   try {
     //update lego model itself and get the lego model id
-    const getSetsRelatedToThisTheme = await Theme.findByPk(req.params.id, {
-      attributes: { include: Set },
+    const getSetsRelatedToThisTheme = await Theme.findOne({
+      where: { id: req.params.id },
+      include: Set,
     });
-
-    const setsInThisTheme = getSetsRelatedToThisTheme.map((singleSet) => {
+    const setsInThisTheme = getSetsRelatedToThisTheme.sets.map((singleSet) => {
       return singleSet.get({ plain: true });
     });
 
