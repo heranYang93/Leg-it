@@ -56,7 +56,7 @@ router.get('/posts/:id', async (req, res) => {
     console.log(postsData);
     res.render('singlePost', {
       title: 'Lego Posts',
-      postsData: postsData,
+      postsData: [postsData],
       signedIn: req.session.logged_in,
       loggedOut: !req.session.logged_in,
       user: req.session.user_name,
