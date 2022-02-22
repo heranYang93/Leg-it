@@ -93,3 +93,8 @@ a {
 .caption {
   color: white;
 }
+
+.card {
+  max-width: 600px;
+  margin: auto;
+}

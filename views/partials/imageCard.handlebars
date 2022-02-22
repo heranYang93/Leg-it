@@ -1,13 +1,11 @@
 <article class='card'>
-  <div class='level is-mobile'>
-    <a href='/posts/{{id}}'>
-      <div class='level-left'>
-        <h1 class='card-header-title level-item' id='{{id}}'>
-          {{user.username}}
-        </h1>
-      </div>
-    </a>
-  </div>
+  <a href='/posts/{{id}}'>
+    <div class='level-left'>
+      <h1 class='card-header-title level-left' id='{{id}}'>
+        {{user.username}}
+      </h1>
+    </div>
+  </a>
   <div class='card-image'>
     <figure class='image is-1by1'>
       <img src={{post_image}} alt='{{post_title}}' />
@@ -21,8 +19,9 @@
         aria-label='heart emoji'
       >
         {{#if likes}}
-          <i class='fa fa-heart'></i>{{likes.length}}
-          likes
+          <strong><i class='fa fa-heart'></i><span>
+              {{likes.length}}
+              likes</span></strong>
         {{/if}}
       </span>
     </div>
