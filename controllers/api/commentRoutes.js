@@ -32,7 +32,9 @@ router.put('/:id', async (req, res) => {
         if (updatedComment){
             res.json({success: true, updatedComment});
             }
-            res.json({message: `No comment with ID of ${req.params.id} could be found`})
+            else {
+                res.json({message: `No comment with ID of ${req.params.id} could be found`})
+            }
     }
     catch (err) { 
 
@@ -52,7 +54,9 @@ router.delete('/:id', async (req, res) => {
     if (deletedComment){
     res.json({success: true});
     }
-    res.json({message: `No comment with ID of ${req.params.id} could be found`})
+    else{
+        res.json({message: `No comment with ID of ${req.params.id} could be found`})
+    }
 }
 catch (err) { 
 
