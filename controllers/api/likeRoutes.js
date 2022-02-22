@@ -3,9 +3,11 @@ const { Like, Post } = require('../../models');
 
 router.post('/:postId', async (req, res) => {
   try {
+    console.log(req.session);
     const { postId } = req.params;
-    console.log(postId);
+    console.log(postId, 'postId');
     const userId = req.session.user.id;
+    console.log(userId, 'userId');
     const result = await Like.findOne({
       where: { user_id: userId, post_id: postId },
     });
