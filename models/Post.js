@@ -27,6 +27,14 @@ Post.init(
       type: DataTypes.INTEGER,
       defaultValue: null,
     },
+    theme_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'theme',
+        key: 'id',
+      },
+    },
     user_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
