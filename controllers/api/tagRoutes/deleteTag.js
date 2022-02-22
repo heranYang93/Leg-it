@@ -1,8 +1,8 @@
 const router = require('express').Router();
 const { Tag, TagToPost } = require('../../../models');
-const withAuth = require('../../../utils/auth');
+// const withAuth = require('../../../utils/auth');
 
-router.post('/', async (req, res) => {
+router.delete('/', async (req, res) => {
   try {
     //update lego model itself and get the lego model id
     const deleteTagAssociation = await TagToPost.destroy({
@@ -17,6 +17,7 @@ router.post('/', async (req, res) => {
         tag_id: req.body.tag_id,
       },
     });
+
     if (findResidualAssociate.length === 0) {
       const deleteTag = await Tag.destroy({
         where: {
