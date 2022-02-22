@@ -5,17 +5,45 @@ const withAuth = require('../../../utils/auth');
 router.post('/', async (req, res) => {
   try {
     //update lego model itself and get the lego model id
-    const newTagModel = await Tag.create({ title: req.body.title });
-    const newTag = newTagModel.get({ plain: true });
-    const newCorrelationModel = await TagToPost.create({
-      tag_id: newTag.id,
-      post_id: req.body.post_id,
-    });
-    const newCorrelation = newCorrelationModel.get({ plain: true });
 
-    console.log(`IN CREATE TAG ROUTE, CREATED TAG ID:${newTag.id}`);
+    //Check if this tag exists already
+    const checkTag = await Tag.findOne({ where: { title: req.body.title } });
 
-    res.status(200).json(newTag).json(newCorrelation);
+    if (checkTag === null) {
+      //If this tag did NOT exist
+
+      const createTag = await Tag.create({
+        title: req.body.title.toLowerCase(),
+      });
+      const newTag = createTag.get({ plain: true });
+
+      let newCorrelationModel = await TagToPost.create({
+        tag_id: newTag.id,
+        post_id: req.body.post_id,
+      });
+
+      console.log(`NEW TAG TO NEW POST, TAG ID:${newTag.id}`);
+      res.status(200).json(newCorrelationModel);
+    } else {
+      //If this tag exists already!
+
+      const existingTagId = checkTag.dataValues.id;
+      const checkConnection = await TagToPost.findOne({
+        where: {
+          tag_id: existingTagId,
+          post_id: req.body.post_id,
+        },
+      });
+      if (!checkConnection) {
+        let createNewCorrelation = await TagToPost.create({
+          tag_id: existingTagId,
+          post_id: req.body.post_id,
+        });
+        res.status(200).json(createNewCorrelation);
+      } else {
+        res.status(400).json({ message: "Can't add the same tag" });
+      }
+    }
   } catch (err) {
     console.error(err.message);
   }

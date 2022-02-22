@@ -2,16 +2,32 @@ const router = require('express').Router();
 const { Tag, TagToPost } = require('../../../models');
 const withAuth = require('../../../utils/auth');
 
-router.delete('/:id', async (req, res) => {
+router.post('/', async (req, res) => {
   try {
     //update lego model itself and get the lego model id
-    const deleteTagModel = await Tag.destroy({
-      where: { id: req.params.id },
+    const deleteTagAssociation = await TagToPost.destroy({
+      where: {
+        tag_id: req.body.tag_id,
+        post_id: req.body.post_id,
+      },
     });
 
-    console.log(`IN DELETE TAG ROUTE, DELETED TAG ID:${req.params.id}`);
+    const findResidualAssociate = await TagToPost.findAll({
+      where: {
+        tag_id: req.body.tag_id,
+      },
+    });
+    if (findResidualAssociate.length === 0) {
+      const deleteTag = await Tag.destroy({
+        where: {
+          id: req.body.tag_id,
+        },
+      });
+    }
 
-    res.status(200).json(deleteTagModel);
+    // const t2pArr = findTag.map((x) => x.get({ plain: true }));
+
+    res.status(200).json(deleteTagAssociation);
   } catch (err) {
     console.error(err.message);
   }
