@@ -1,7 +1,7 @@
-<article class='card'>
+<article class='card' id='{{id}}'>
   <a href='/posts/{{id}}'>
     <div class='level-left'>
-      <h1 class='card-header-title level-left' id='{{id}}'>
+      <h1 class='card-header-title level-left'>
         {{user.username}}
       </h1>
     </div>
@@ -19,7 +19,11 @@
         aria-label='heart emoji'
       >
         {{#if likes}}
-          <strong><i class='fa fa-heart'></i><span>
+          <strong><i class='fa fa-heart' id='like-post'></i><span>
+              {{likes.length}}
+              likes</span></strong>
+        {{else}}
+          <strong><i class='far fa-heart' id='like-post'></i><span>
               {{likes.length}}
               likes</span></strong>
         {{/if}}
