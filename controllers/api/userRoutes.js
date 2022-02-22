@@ -1,15 +1,37 @@
 const router = require('express').Router();
 const User = require('../../models/User');
+const bcrypt = require('bcrypt');
 
 // Get one user
-router.get('/login', async (req, res) => {
+router.post('/login', async (req, res) => {
   try {
-    const user = await User.findByPk(req.params.id);
+    const user = await User.findOne({
+      raw: true,
+      where: { username: req.body.name },
+    });
+    console.log(user);
     if (!user) {
-      res.status(404).json({ message: 'No user with this id!' });
+      res.status(404).json({ message: 'Login failed. Please try again!' });
       return;
     }
-    res.status(200).json(user);
+    console.log(req.body.password);
+    const validPassword = await bcrypt.compare(
+      req.body.password,
+      user.password
+    );
+    console.log(validPassword);
+    if (!validPassword) {
+      res.status(400).json({ message: 'Login failed. Please try again!' });
+      return;
+    }
+    req.session.save(() => {
+      req.session.loggedIn = true;
+      req.session.user = {
+        id: user.id,
+        username: user.username,
+      };
+      res.json({ success: true });
+    });
   } catch (err) {
     res.status(500).json(err);
   }

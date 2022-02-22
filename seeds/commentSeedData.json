@@ -26,6 +26,11 @@
     },
     {
         "comment_text": "This is a comment",
+        "post_id": "5",
+        "user_id": "2"
+    },
+    {
+        "comment_text": "This is a comment",
         "post_id": "6",
         "user_id": "1"
     }
