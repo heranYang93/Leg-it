@@ -13,6 +13,7 @@ const seedDatabase = async () => {
     individualHooks: true,
     returning: true,
   });
+  await Theme.bulkCreate(themeSeedData);
   await Post.bulkCreate(postSeedData);
   await Comment.bulkCreate(commentSeedData);
   await Tag.bulkCreate(tagSeedData);
