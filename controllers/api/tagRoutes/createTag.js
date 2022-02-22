@@ -15,7 +15,7 @@ router.post('/', async (req, res) => {
 
     console.log(`IN CREATE TAG ROUTE, CREATED TAG ID:${newTag.id}`);
 
-    res.status(200).json(newTag, newCorrelation);
+    res.status(200).json(newTag).json(newCorrelation);
   } catch (err) {
     console.error(err.message);
   }

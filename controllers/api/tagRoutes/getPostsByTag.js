@@ -9,16 +9,17 @@ const withAuth = require('../../../utils/auth');
 router.get('/:id', async (req, res) => {
   try {
     //update lego model itself and get the lego model id
-    const getPostsByTag = await Tag.findByPk(req.params.id, {
-      attributes: { include: Post },
+    const getPostsByTag = await Tag.findOne({
+      where: { id: req.params.id },
+      include: Post,
     });
 
-    const postsWithThisTag = getPostsByTag.map((singlePost) => {
-      return singlePost.get({ plain: true });
+    const postsWithThisTag = getPostsByTag.posts.map((singlePost) => {
+      return singlePost.dataValues;
     });
 
     console.log(
-      `IN GET POST BY TAG ROUTE, GOT TAG ID:${postsWithThisTag[0].id}`
+      `IN GET POST BY TAG ROUTE, GOT TAG ID:${getPostsByTag.dataValues.id}`
     );
 
     res
