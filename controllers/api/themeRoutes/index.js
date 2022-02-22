@@ -1,9 +1,9 @@
 const router = require('express').Router();
 
-const getSetsByTheme = require('./getSetsByTheme');
+const getPostsByTheme = require('./getPostsByTheme');
 const deleteTheme = require('./deleteTheme');
 
-router.use('/getSets', getSetsByTheme);
+router.use('/getPosts', getPostsByTheme);
 router.use('/delete', deleteTheme);
 
 module.exports = router;
