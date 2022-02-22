@@ -40,6 +40,7 @@ router.get('/posts/:id', async (req, res) => {
       include: [
         {
           model: User,
+          required: true,
           attributes: {
             exclude: ['password', 'email'],
           },
@@ -49,17 +50,30 @@ router.get('/posts/:id', async (req, res) => {
         },
         {
           model: Comment,
+          include: [
+            {
+              model: User,
+              required: true,
+              attributes: { exclude: ['password', 'email'] },
+            },
+          ],
         },
       ],
     });
     const postsData = dbpostsData.get({ plain: true });
+    postsData.comments.map(
+      (e) =>
+        (e.signedIn = 
+          req.session.loggedIn && e.user_id === req.session.user.id)
+    );
     console.log(postsData);
     res.render('singlePost', {
       title: 'Lego Posts',
       postsData: [postsData],
-      signedIn: req.session.logged_in,
-      loggedOut: !req.session.logged_in,
-      user: req.session.user_name,
+      signedIn: req.session.loggedIn,
+      loggedOut: !req.session.loggedIn,
+      comments: postsData.comments,
+      user: req.session.user.username,
     });
   } catch (error) {
     res.status(500).json({ msg: error });
