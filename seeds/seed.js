@@ -18,7 +18,7 @@ const seedDatabase = async () => {
   await Comment.bulkCreate(commentSeedData);
   await Tag.bulkCreate(tagSeedData);
   await TagToPost.bulkCreate(tagToPostSeedData);
-  await Theme.bulkCreate(themeSeedData);
+  // await Theme.bulkCreate(themeSeedData);
   process.exit(0);
 };
 
