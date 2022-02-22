@@ -1,16 +1,16 @@
 <article class='card'>
-  <div class='level is-mobile' style='marginBottom: 0'>
-    <a href='/posts/{{id}}'>
+  <div class='level is-mobile'>
+    <a href='/posts/{{postsData.id}}'>
       <div class='level-left'>
-        <h1 class='card-header-title level-item' id='{{id}}'>
-          {{user.username}}
+        <h1 class='card-header-title level-item' id='{{postsData.id}}'>
+          {{postsData.user.username}}
         </h1>
       </div>
     </a>
   </div>
   <div class='card-image'>
     <figure class='image is-1by1'>
-      <img src={{post_image}} alt='{{post_title}}' style='objectFit:cover' />
+      <img src={{postsData.post_image}} alt='{{postsData.post_title}}' />
     </figure>
   </div>
   <div class='level is-mobile' style='marginBottom: 0'>
@@ -20,8 +20,8 @@
         role='img'
         aria-label='heart emoji'
       >
-        {{#if likes}}
-          <i class='fa fa-heart'></i>{{likes.length}}
+        {{#if postsData.likes}}
+          <i class='fa fa-heart'></i>{{postsData.likes.length}}
           likes
         {{/if}}
       </span>
