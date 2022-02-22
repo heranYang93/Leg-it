@@ -1,27 +1,32 @@
 [
     {
-        "username": "Lego_Influencer_1",
+        "username": "LegoInfluencer1",
         "email": "user1@gmail.com",
         "password": "Pzcw6x9@x@ErS8P"
     },
     {
-        "username": "Lego_Influencer_2",
+        "username": "LegoInfluencer2",
         "email": "user2@gmail.com",
         "password": "Pzcw6x9@x@ErS8P"
     },
     {
-        "username": "Lego_Influencer_3",
+        "username": "LegoInfluencer3",
         "email": "user3@gmail.com",
         "password": "Pzcw6x9@x@ErS8P"
     },
     {
-        "username": "Lego_Influencer_4",
+        "username": "LegoInfluencer4",
         "email": "user4@gmail.com",
         "password": "Pzcw6x9@x@ErS8P"
     },
     {
-        "username": "Lego_Influencer_5",
+        "username": "LegoInfluencer5",
         "email": "user5@gmail.com",
+        "password": "Pzcw6x9@x@ErS8P"
+    },
+    {
+        "username": "LegoInfluencer6",
+        "email": "user6@gmail.com",
         "password": "Pzcw6x9@x@ErS8P"
     }
 ]

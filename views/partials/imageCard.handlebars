@@ -1,0 +1,33 @@
+<article class='card' id='{{id}}'>
+  <a href='/posts/{{id}}'>
+    <div class='level-left'>
+      <h1 class='card-header-title level-left'>
+        {{user.username}}
+      </h1>
+    </div>
+  </a>
+  <div class='card-image'>
+    <figure class='image is-1by1'>
+      <img src={{post_image}} alt='{{post_title}}' />
+    </figure>
+  </div>
+  <div class='level is-mobile' style='marginBottom: 0'>
+    <div class='level-left'>
+      <span
+        class='card-header-title level-item'
+        role='img'
+        aria-label='heart emoji'
+      >
+        {{#if likes}}
+          <strong><i class='fa fa-heart' id='like-post'></i><span>
+              {{likes.length}}
+              likes</span></strong>
+        {{else}}
+          <strong><i class='far fa-heart' id='like-post'></i><span>
+              {{likes.length}}
+              likes</span></strong>
+        {{/if}}
+      </span>
+    </div>
+  </div>
+</article>

@@ -1,4 +1,3 @@
-const sequelize = require('../config/connection');
 const { Comment, User, Post, Theme, Tag, TagToPost } = require('../models');
 const commentSeedData = require('./commentSeedData.json');
 const postSeedData = require('./postSeedData.json');
@@ -18,7 +17,8 @@ const seedDatabase = async () => {
   await Comment.bulkCreate(commentSeedData);
   await Tag.bulkCreate(tagSeedData);
   await TagToPost.bulkCreate(tagToPostSeedData);
-  // await Theme.bulkCreate(themeSeedData);
+  await Like.bulkCreate(likeSeedData);
+  
   process.exit(0);
 };
 
