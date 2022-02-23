@@ -1,12 +1,12 @@
 
     <!-- comment card -->
-        {{#each this}}
+        {{#each comments}}
           <div class= "card">
               <h3 class="card-header "></h3>
               <section class="comment card-body">
                   <div class="text has-background-grey has-text-primary p-3 is-size-4 ">
                       <!-- {{comment_text}} --> <span class ="is is-uppercase">
-                      <p class="p-1  "> {{user_id}}</p>
+                      <p class="p-1  "> {{user.username}}</p>
                     </span>
                       <div class=" has-background-white has-text-black is-align-item p-3 is-size-6 ">
                            {{comment_text}}
