@@ -14,10 +14,14 @@ router.post('/:postId', async (req, res) => {
 
     if (!result) {
       await Like.create({ user_id: userId, post_id: postId });
-      res.status(200).json({ msg: `successfully liked post id:${postId}` });
+      res
+        .status(200)
+        .json({ like: true, msg: `successfully liked post id:${postId}` });
     } else {
       await Like.destroy({ where: result.dataValues });
-      res.status(200).json({ msg: `successfully unliked post id:${postId}` });
+      res
+        .status(200)
+        .json({ like: false, msg: `successfully unliked post id:${postId}` });
     }
   } catch (error) {
     res.status(500).json({ error: { msg: 'Error in changing like status' } });

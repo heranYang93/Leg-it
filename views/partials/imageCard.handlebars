@@ -19,7 +19,10 @@
         aria-label='heart emoji'
       >
         {{#if likes}}
-          <strong><i class='fa fa-heart' id='like-post'></i><span>
+          <strong id='like-post'><i class='fa fa-heart'></i><span
+              class='likes-counter'
+              data-value={{likes.length}}
+            >
               {{likes.length}}
               likes</span></strong>
         {{else}}
