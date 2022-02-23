@@ -82,6 +82,44 @@ router.get('/posts/:id', async (req, res) => {
   }
 });
 
+router.get('/feed', async (req, res) => {
+  try {
+    const dbpostsData = await Post.findAll({
+      include: [
+        {
+          model: User,
+          attributes: {
+            exclude: ['password', 'email'],
+          },
+        },
+        {
+          model: Like,
+        },
+        {
+          model: Comment,
+        },
+      ],
+      order: [['updatedAt', 'DESC']],
+    });
+    const postsData = dbpostsData.map((el) => el.get({ plain: true }));
+    postsData.map(
+      (e) =>
+        (e.like =
+          e.likes.filter((e) => e.user_id === req.session.user.id).length > 0)
+    );
+    console.log(postsData);
+    res.render('feed', {
+      title: 'Lego Posts',
+      postsData: postsData,
+      signedIn: req.session.logged_in,
+      loggedOut: !req.session.logged_in,
+      user: req.session.user_name,
+    });
+  } catch (error) {
+    res.status(500).json({ msg: error });
+  }
+});
+
 router.get('/login', async (req, res) => {
   try {
     res.render('login');
