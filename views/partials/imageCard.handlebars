@@ -19,17 +19,15 @@
         aria-label='heart emoji'
       >
         {{#if like}}
-          <strong id='like-post'><i class='fas fa-heart'></i><span
-              class='likes-counter'
-              data-value={{likes.length}}
-            >
+          <strong id='like-post' post-id={{id}} class='like-post'><i
+              class='fas fa-heart'
+            ></i><span class='likes-counter' data-value={{likes.length}}>
               {{likes.length}}
               likes</span></strong>
         {{else}}
-          <strong id='like-post'><i class='far fa-heart'></i><span
-              class='likes-counter'
-              data-value={{likes.length}}
-            >
+          <strong id='like-post' post-id={{id}} class='like-post'><i
+              class='far fa-heart'
+            ></i><span class='likes-counter' data-value={{likes.length}}>
               {{likes.length}}
               likes</span></strong>
         {{/if}}
