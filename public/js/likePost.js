@@ -8,20 +8,19 @@ const handleLikePost = async (event) => {
   if (id) {
     try {
       const data = await makeRequest(`/api/like/${id}`, 'POST');
+      const element = document.getElementById('like-post');
       console.log(data);
       const likes = +document
         .querySelector('.likes-counter')
         .getAttribute('data-value');
       console.log(likes, 'likes');
       if (data.like) {
-        document.getElementById(
-          'like-post'
-        ).innerHTML = `<i class="fas fa-heart ml-2"></i><span class='likes-counter'
+        element.innerHTML = '';
+        element.innerHTML = `<i class="fas fa-heart"></i><span class='likes-counter'
         data-value=${likes + 1}> ${likes + 1} likes</span>`;
       } else {
-        document.getElementById(
-          'like-post'
-        ).innerHTML = `<i class="far fa-heart ml-2"></i><span class='likes-counter'
+        element.innerHTML = '';
+        element.innerHTML = `<i class="far fa-heart"></i><span class='likes-counter'
         data-value=${likes - 1}> ${likes - 1} likes</span>`;
       }
     } catch (error) {

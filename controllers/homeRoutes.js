@@ -63,9 +63,11 @@ router.get('/posts/:id', async (req, res) => {
     const postsData = dbpostsData.get({ plain: true });
     postsData.comments.map(
       (e) =>
-        (e.signedIn = 
-          req.session.loggedIn && e.user_id === req.session.user.id)
+        (e.signedIn = req.session.loggedIn && e.user_id === req.session.user.id)
     );
+    postsData.like =
+      postsData.likes.filter((e) => e.user_id === req.session.user.id).length >
+      0;
     console.log(postsData);
     res.render('singlePost', {
       title: 'Lego Posts',
