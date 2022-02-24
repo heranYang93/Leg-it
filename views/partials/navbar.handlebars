@@ -21,12 +21,19 @@
           <a class='button is-light is-inverted' href='/profile'>
             <strong>Profile</strong>
           </a>
-          <a id='logout-btn' class='button is-light is-inverted' href='/login'>
-            <strong>Login</strong>
+          <a class='button is-light is-inverted' href='/favourites'>
+            <strong>Favourites</strong>
           </a>
-          {{#if loggedIn}}
+          <a class='button is-light is-inverted' href='/feed'>
+            <strong>Feed</strong>
+          </a>
+          {{#if loggedOut}}
           <a id='logout-btn' class='button is-light is-inverted' href='/login'>
             <strong>Logout</strong>
+          </a>
+          {{else}}
+          <a id='login-btn' class='button is-light is-inverted' href='/login'>
+            <strong>Login</strong>
           </a>
           {{/if}}
       </div>
