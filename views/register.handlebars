@@ -4,14 +4,21 @@
           <div class="container">
             <div class="columns is-centered">
               <div class="column is-5-tablet is-4-desktop is-3-widescreen">
-                <form id="login-form" action="" class="box">
+                <form id="register-form" action="" class="box">
                     <div class="field">
                     <div class="field">
-                    <label for="name" class="label">Username</label>
+                    <label for="username" class="label">Username</label>
                     <div class="control has-icons-left">
-                      <input type="name" placeholder="e.g. blogger1" class="input" id="name" required>
+                      <input type="username" placeholder="e.g. blogger1" class="input" id="username" required>
                       <span class="icon is-small is-left">
                         <i class="fas fa-user"></i>
+                      </span>
+                    </div>
+                   <label for="email" class="label">Email</label>
+                    <div class="control has-icons-left">
+                      <input type="email" placeholder="john@mail.com" class="input" id="email" required>
+                      <span class="icon is-small is-left">
+                        <i class="fas fa-envelope"></i>
                       </span>
                     </div>
                   </div>
@@ -32,13 +39,13 @@
                   </div>
                   <div class="field">
                     <button type="submit" class="button is-success">
-                      Log in
+                      Sign Up
                     </button>
                   </div>
                 </form>
           <div class="link">
               <div>
-                <a href="/register">Create an Account</a>
+                <a href="/login">Login</a>
               </div>
           </div>
               </div>
@@ -48,5 +55,3 @@
       </section>
 </div>
 </section>
-
-    <script type="module" src='/js/login.js'></script>
