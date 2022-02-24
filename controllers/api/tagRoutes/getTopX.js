@@ -1,4 +1,4 @@
-const pageToRender = 'tag';
+const pageToRender = 'posts';
 
 const router = require('express').Router();
 const { Tag } = require('../../../models');
