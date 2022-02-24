@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Post, Comment, Like } = require('../models');
+const { User, Post, Comment, Like, Follower } = require('../models');
 
 router.get('/', async (req, res) => {
   try {
@@ -44,6 +44,11 @@ router.get('/posts/:id', async (req, res) => {
           attributes: {
             exclude: ['password', 'email'],
           },
+          include: [
+            {
+              model: Follower,
+            },
+          ],
         },
         {
           model: Like,
@@ -69,6 +74,13 @@ router.get('/posts/:id', async (req, res) => {
       postsData.likes.filter((e) => e.user_id === req.session.user.id).length >
       0;
     console.log(postsData);
+    console.log(postsData.user.followers);
+    // const { userFollowers: follower_id } = postsData.user.followers;
+    // console.log(userFollowers);
+    postsData.follower =
+      postsData.user.followers.filter((e) => e.user_id === req.session.user.id)
+        .length > 0;
+    console.log(postsData.follower);
     res.render('singlePost', {
       title: 'Lego Posts',
       postsData: [postsData],

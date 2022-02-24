@@ -67,16 +67,24 @@ User.hasMany(Comment, {
 
 // Followers
 
-Follower.belongsTo(User, {
-  foreignKey: 'user_id',
-});
+// Follower.belongsTo(User, {
+//   foreignKey: 'user_id',
+// });
 
 Follower.belongsTo(User, {
   foreignKey: 'follower_id',
 });
 
 User.hasMany(Follower, {
-  foreignKey: 'user_id',
+  foreignKey: 'follower_id',
 });
+
+// User.hasMany(Follower, {
+//   foreignKey: 'id',
+// });
+
+// User.hasMany(Follower, {
+//   foreignKey: 'follower_id',
+// });
 
 module.exports = { User, Post, Like, Comment, Tag, TagToPost, Follower };
