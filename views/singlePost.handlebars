@@ -1,7 +1,13 @@
 <div class="container">
-{{#each postsData}}
-{{> imageCard}}
-{{/each}}  
+    {{#each postsData}}
+    {{> imageCard}}
+    {{/each}}  
 </div>
 
-    <script type="module" src='/js/likePost.js'></script>
+<section id='tagArea'>
+    {{#each tagArr}}
+    {{> singleTag}}
+    {{/each}}  
+</section>
+
+<script type="module" src='/js/likePost.js'></script>

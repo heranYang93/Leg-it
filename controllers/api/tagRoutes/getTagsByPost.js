@@ -13,13 +13,14 @@ router.get('/:id', async (req, res) => {
       include: Tag,
     });
 
-    const tagsArr = getPost.tags.map((singleTag) => {
+    const tagArr = getPost.tags.map((singleTag) => {
       return { id: singleTag.dataValues.id, title: singleTag.dataValues.title };
     });
 
     console.log(`IN GET TAGS BY POST ROUTE`);
+    console.log(tagArr);
 
-    res.status(200).json(tagsArr).render(pageToRender, { tagsArr });
+    res.status(200).render(pageToRender, { tagArr });
   } catch (err) {
     console.error(err.message);
   }

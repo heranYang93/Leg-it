@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Post, Comment, Like } = require('../models');
+const { User, Post, Comment, Like, Tag } = require('../models');
 
 router.get('/', async (req, res) => {
   try {
@@ -58,15 +58,22 @@ router.get('/posts/:id', async (req, res) => {
             },
           ],
         },
+        {
+          model: Tag,
+        },
       ],
     });
     const postsData = dbpostsData.get({ plain: true });
     postsData.comments.map(
       (e) =>
-        (e.signedIn = 
-          req.session.loggedIn && e.user_id === req.session.user.id)
+        (e.signedIn = req.session.loggedIn && e.user_id === req.session.user.id)
     );
-    console.log(postsData);
+    // >>>hy
+    const tagArr = postsData.tags.map((singleTag) => {
+      return { id: singleTag.id, title: singleTag.title };
+    });
+    // <<<hy
+    // console.log(postsData);
     res.render('singlePost', {
       title: 'Lego Posts',
       postsData: [postsData],
@@ -74,6 +81,9 @@ router.get('/posts/:id', async (req, res) => {
       loggedOut: !req.session.loggedIn,
       comments: postsData.comments,
       user: req.session.user.username,
+      // >>>hy
+      tagArr,
+      // <<<hy
     });
   } catch (error) {
     res.status(500).json({ msg: error });
