@@ -9,4 +9,17 @@ module.exports = {
     }).format(new Date(date));
     // return date.toLocaleTimeString();
   },
+//function to filter comments for user only on the feed
+  ifEquals: function(a, b, options) {
+    console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",a,b)
+    if (a === b) {
+      console.log("matched ")
+      return options.fn(this);
+    }
+
+    console.log(options.fn(this))
+
+    return options.inverse(this);
+  },
+
 };
