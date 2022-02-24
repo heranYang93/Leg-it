@@ -35,6 +35,9 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/posts/:id', async (req, res) => {
+  if (!req.session.loggedIn) {
+    return res.redirect('/login');
+  }
   try {
     const dbpostsData = await Post.findByPk(req.params.id, {
       include: [
@@ -95,6 +98,9 @@ router.get('/posts/:id', async (req, res) => {
 });
 
 router.get('/feed', async (req, res) => {
+  if (!req.session.loggedIn) {
+    return res.redirect('/login');
+  }
   try {
     const dbpostsData = await Post.findAll({
       include: [
@@ -133,6 +139,9 @@ router.get('/feed', async (req, res) => {
 });
 
 router.get('/favourites', async (req, res) => {
+  if (!req.session.loggedIn) {
+    return res.redirect('/login');
+  }
   try {
     const dbpostsData = await Post.findAll({
       include: [
@@ -182,14 +191,6 @@ router.get('/login', async (req, res) => {
 router.get('/register', async (req, res) => {
   try {
     res.render('register');
-  } catch (error) {
-    res.status(500).json({ msg: error });
-  }
-});
-
-router.get('/login', async (req, res) => {
-  try {
-    res.render('login');
   } catch (error) {
     res.status(500).json({ msg: error });
   }

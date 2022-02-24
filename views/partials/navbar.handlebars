@@ -16,24 +16,50 @@
     <div class='navbar-start'>
       <div class='navbar-item'>
           <a class='button is-light is-inverted' href='/'>
-            <strong>Home</strong>
-          </a>
-          <a class='button is-light is-inverted' href='/profile'>
-            <strong>Profile</strong>
+           <span class="icon">
+            <i class="fa fa-home"></i>
+          </span>
           </a>
           <a class='button is-light is-inverted' href='/favourites'>
-            <strong>Favourites</strong>
+            <i class='fas fa-heart'></i>
           </a>
           <a class='button is-light is-inverted' href='/feed'>
-            <strong>Feed</strong>
+           <span class="icon">
+            <i class="fa fa-book"></i>
+          </span>
           </a>
           {{#if loggedOut}}
-          <a id='logout-btn' class='button is-light is-inverted' href='/login'>
-            <strong>Logout</strong>
-          </a>
+          <div class="dropdown">
+  <div class="dropdown-trigger">
+    <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+      <span class="icon is-small">
+        <i class="fas fa-user" aria-hidden="true"></i>
+      </span>
+    </button>
+  </div>
+  <div class="dropdown-menu" id="dropdown-menu" role="menu">
+    <div class="dropdown-content">
+      <a href="#" class="dropdown-item">
+        Profile
+      </a>
+      <hr class="dropdown-divider">
+      <a href="/login" class="dropdown-item">
+       logout
+      </a>
+    </div>
+  </div>
+</div>
+<script type="module" src='/js/toggleProfile.js'></script>
           {{else}}
           <a id='login-btn' class='button is-light is-inverted' href='/login'>
-            <strong>Login</strong>
+           <span class="icon">
+              <i class="fas fa-sign-in-alt"></i>
+            </span>
+          </a>
+          <a class='button is-light is-inverted' href='/register'>
+            <span class="icon">
+              <i class="fas fa-user-plus"></i>
+            </span>
           </a>
           {{/if}}
       </div>
