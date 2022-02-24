@@ -97,6 +97,13 @@ router.get('/feed', async (req, res) => {
         },
         {
           model: Comment,
+          include:[
+          {
+            model: User,
+            required: true,
+            attributes: { exclude: ['password', 'email'] },
+          },
+        ],
         },
       ],
       order: [['updatedAt', 'DESC']],

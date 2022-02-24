@@ -1,0 +1,47 @@
+<div>
+{{#each comments}}
+{{#ifEquals ../user_id user_id }}
+
+<div class='card is-flex is-align-items-center '
+  style="max-height: 100px">
+  {{!-- max height will break if comment is too big --}}
+        <img
+        class="mr-2"
+        style="max-width: 2rem; border-radius: 100%;"
+          src=' https://i.kym-cdn.com/photos/images/facebook/001/701/650/aa8.jpg'
+        />
+        <p>
+          <span
+            class='has-text-primary is-size-9 is-uppercase has-text-weight-bold'
+          >
+          {{user.username}}: </span>
+          {{this.comment_text}}
+          </p> 
+            
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+{{/ifEquals}}
+{{/each}}
+</div>
+
+<div>
+    {{#if comments}}
+    <div class="card is-flex  is-align-items-center has-background-light">
+    <a href='/posts/{{id}}'>
+    <button class="button button-is-text has-text-grey">VIEW ALL {{comments.length}} COMMENTS</button>
+    </a>
+    </div>
+    {{else}}
+    <div></div>
+    {{/if}}
+</div>
