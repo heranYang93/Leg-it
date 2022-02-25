@@ -77,13 +77,13 @@ router.get('/posts/:id', async (req, res) => {
       postsData.likes.filter((e) => e.user_id === req.session.user.id).length >
       0;
     console.log(postsData);
-    console.log(postsData.user.followers);
+    console.log(postsData.user.followers, 'followers');
     // const { userFollowers: follower_id } = postsData.user.followers;
     // console.log(userFollowers);
     postsData.follower =
       postsData.user.followers.filter((e) => e.user_id === req.session.user.id)
         .length > 0;
-    console.log(postsData.follower);
+    console.log(postsData.follower, 'follower Status');
     res.render('singlePost', {
       title: 'Lego Posts',
       postsData: [postsData],
@@ -115,13 +115,13 @@ router.get('/feed', async (req, res) => {
         },
         {
           model: Comment,
-          include:[
-          {
-            model: User,
-            required: true,
-            attributes: { exclude: ['password', 'email'] },
-          },
-        ],
+          include: [
+            {
+              model: User,
+              required: true,
+              attributes: { exclude: ['password', 'email'] },
+            },
+          ],
         },
       ],
       order: [['updatedAt', 'DESC']],
