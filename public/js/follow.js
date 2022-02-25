@@ -1,6 +1,7 @@
 import { makeRequest } from './helpers.js';
 
 const followBtn = document.querySelector('.follow-action');
+const followText = document.querySelector('.username-within');
 console.log(followBtn);
 const handleFollowAction = async (event) => {
   event.preventDefault();
@@ -14,9 +15,17 @@ const handleFollowAction = async (event) => {
       if (data.follow) {
         followBtn.innerHTML = '';
         followBtn.innerHTML = 'Unfollow';
+        followText.innerHTML = '';
+        followText.innerHTML = '• Following';
+        followText.removeEventListener('click', handleFollowAction);
       } else {
         followBtn.innerHTML = '';
         followBtn.innerHTML = 'Follow';
+        followText.innerHTML = '';
+        followText.innerHTML = `•<span
+        class='ml-1 has-text-link is-clickable'
+      >Follow</span>`;
+        followText.addEventListener('click', handleFollowAction);
       }
     } catch (error) {
       console.log('Failed to login', error);
@@ -27,3 +36,4 @@ const handleFollowAction = async (event) => {
 };
 
 followBtn.addEventListener('click', handleFollowAction);
+followText.addEventListener('click', handleFollowAction);
