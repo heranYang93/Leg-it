@@ -25,8 +25,8 @@ router.get('/', async (req, res) => {
     res.render('posts', {
       title: 'Lego Posts',
       postsData: postsData,
-      signedIn: req.session.logged_in,
-      loggedOut: !req.session.logged_in,
+      signedIn: req.session.loggedIn,
+      loggedOut: !req.session.loggedIn,
       user: req.session.user_name,
     });
   } catch (error) {
@@ -87,8 +87,8 @@ router.get('/posts/:id', async (req, res) => {
     res.render('singlePost', {
       title: 'Lego Posts',
       postsData: [postsData],
-      signedIn: req.session.logged_in,
-      loggedOut: !req.session.logged_in,
+      signedIn: req.session.loggedIn,
+      loggedOut: !req.session.loggedIn,
       comments: postsData.comments,
       user: req.session.user.username,
     });
@@ -136,9 +136,9 @@ router.get('/feed', async (req, res) => {
     res.render('feed', {
       title: 'Lego Posts',
       postsData: postsData,
-      signedIn: req.session.logged_in,
-      loggedOut: !req.session.logged_in,
-      user: req.session.user_name,
+      signedIn: req.session.loggedIn,
+      loggedOut: !req.session.loggedIn,
+      user: req.session.user.username,
     });
   } catch (error) {
     res.status(500).json({ msg: error });
@@ -178,9 +178,9 @@ router.get('/favourites', async (req, res) => {
     res.render('feed', {
       title: 'Lego Posts',
       postsData: filteredData,
-      signedIn: req.session.logged_in,
-      loggedOut: !req.session.logged_in,
-      user: req.session.user_name,
+      signedIn: req.session.loggedIn,
+      loggedOut: !req.session.loggedIn,
+      user: req.session.user.username,
     });
   } catch (error) {
     res.status(500).json({ msg: error });
