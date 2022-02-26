@@ -21,16 +21,15 @@ router.get('/', async (req, res) => {
       order: [['updatedAt', 'DESC']],
     });
     const postsData = dbpostsData.map((el) => el.get({ plain: true }));
-    console.log(postsData);
     res.render('posts', {
       title: 'Lego Posts',
       postsData: postsData,
       signedIn: req.session.loggedIn,
       loggedOut: !req.session.loggedIn,
-      user: req.session.user.username,
+      // user: req.session.user.username,
     });
   } catch (error) {
-    res.status(500).json({ msg: error });
+    res.status(500).send({ msg: error });
   }
 });
 
