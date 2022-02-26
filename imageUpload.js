@@ -4,44 +4,32 @@ const multer = require('multer');
 const multerS3 = require('multer-s3');
 const uuid = require('uuid').v4;
 const path = require('path');
-const MongoClient = require('mongodb').MongoClient;
 const mysql = require('mysql');
 
 const app = express();
 
-const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'user',
-  password: 'pass',
-  database: 'dbname'
-});
-connection.connect((err) => {
-  if (err) throw err;
-  console.log('MySQL Connected!');
-});
+require('dotenv').config();
+const Sequelize = require('sequelize');
+const sequelize = process.env.JAWSDB_URL
+	? new Sequelize(process.env.JAWSDB_URL)
+	: new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PW, {
+		host: 'localhost',
+		dialect: 'mysql',
+		dialectOptions: {
+			decimalNumbers: true,
+		},
+	});
+module.exports = sequelize;
 
-function create(table) {
-  var sql = 'CREATE TABLE ' + table;
-  con.query(sql, (err, results) => printQuery(err, results));
-}
+//function create(table) {
+//	var sql = 'CREATE TABLE ' + table;
+//	con.query(sql, (err, results) => printQuery(err, results));
+//}
 
-function insert(table, values) {
-  var sql = 'INSERT INTO ' + table + ' VALUES ?';
-  con.query(sql, [values], (err, results) => printQuery(err, results));
-}
-
-
-
-
-//MongoClient.connect('mongodb://localhost', { useNewUrlParser: true, useUnifiedTopology: true })
-//	.then(client => {
-//		console.log('Mongo Connected!');
-//		const db = client.db('legit');
-//		const collection = db.collection('images');
-//		app.locals.imageCollection = collection;
-//	})
-
-	//replacement - mysql instance 
+//function insert(table, values) {
+//	var sql = 'INSERT INTO ' + table + ' VALUES ?';
+//	con.query(sql, [values], (err, results) => printQuery(err, results));
+//}
 
 const s3 = new aws.S3({ apiVersion: '2006-03-01' });
 
@@ -80,5 +68,8 @@ app.get('/images', (req, res) => {
 			res.json(paths);
 		});
 });
-
-app.listen(3005, () => console.log('App listening on 3005'));    
+sequelize.sync().then(() => {
+	app.listen(3001, () => console.log('App listening on 3001'));
+});
+ 
+//app.listen(3001, () => console.log('App listening on 3001'));      

@@ -19,7 +19,7 @@
 
 	<script>
 		const loadImages = async () => {
-			const response = await fetch('http://localhost:3005/images').then(response => response.json());
+			const response = await fetch('http://localhost:3001/images').then(response => response.json());
 			const imagesElem = document.querySelector('.images');
 			imagesElem.innerHTML = '';
 			console.log(response);
