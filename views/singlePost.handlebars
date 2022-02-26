@@ -1,12 +1,11 @@
 {{> navbar}}
-<div class="container">
+
 {{#each postsData}}
 {{> imageCard}}
 {{> commentCard}}
 {{> modal}}
+{{/each}}
 
-{{/each}}  
-</div>
-    <script type="module" src='/js/likePost.js'></script>
-        <script type="module" src='/js/modal.js'></script>
+<script type="module" src='/js/likePost.js'></script>
+<script type="module" src='/js/modal.js'></script>
 <script type='module' src='/js/follow.js'></script>

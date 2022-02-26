@@ -1,0 +1,19 @@
+  <section class="hero is-primary">
+  <div class="hero-body">
+    <p class="title is-1">
+      #{{tagName}}
+    </p>
+    <br>
+    <p class="subtitle is-5">
+      Here are the posts under the #{{tagName}}
+    </p>
+  </div>
+</section>
+  
+  <div class="subtitle is-1"></div>
+  
+  <section class="postsByTag">
+    {{#each postArr}}
+    {{> postUnderTag}}
+    {{/each}}  
+  </section>

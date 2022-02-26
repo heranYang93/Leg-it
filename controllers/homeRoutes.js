@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Post, Comment, Like, Follower } = require('../models');
+const { User, Post, Comment, Like, Tag, Follower } = require('../models');
 
 router.get('/', async (req, res) => {
   try {
@@ -65,6 +65,9 @@ router.get('/posts/:id', async (req, res) => {
             },
           ],
         },
+        {
+          model: Tag,
+        },
       ],
     });
     const postsData = dbpostsData.get({ plain: true });
@@ -75,14 +78,13 @@ router.get('/posts/:id', async (req, res) => {
     postsData.like =
       postsData.likes.filter((e) => e.user_id === req.session.user.id).length >
       0;
-    console.log(postsData);
-    console.log(postsData.user.followers, 'followers');
+    // console.log(postsData.user.followers, 'followers');
     // const { userFollowers: follower_id } = postsData.user.followers;
     // console.log(userFollowers);
     postsData.follower =
       postsData.user.followers.filter((e) => e.user_id === req.session.user.id)
         .length > 0;
-    console.log(postsData.follower, 'follower Status');
+    // console.log(postsData.follower, 'follower Status');
     res.render('singlePost', {
       title: 'Lego Posts',
       postsData: [postsData],
@@ -126,6 +128,9 @@ router.get('/feed', async (req, res) => {
               attributes: { exclude: ['password', 'email'] },
             },
           ],
+        },
+        {
+          model: Tag,
         },
       ],
       order: [['updatedAt', 'DESC']],
@@ -174,6 +179,9 @@ router.get('/favourites', async (req, res) => {
         },
         {
           model: Comment,
+        },
+        {
+          model: Tag,
         },
       ],
       order: [['updatedAt', 'DESC']],
