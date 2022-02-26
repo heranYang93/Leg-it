@@ -98,3 +98,49 @@ a {
   max-width: 600px;
   margin: auto;
 }
+
+#tagArea {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+#tagArea > * {
+  margin: 10px;
+}
+
+#tagArea > .button > a {
+  color: hsl(171, 100%, 41%);
+}
+
+.postsByTag {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 1%;
+}
+
+.postsByTag > * {
+  margin-bottom: 1%;
+}
+
+.single-post-by-tag {
+  margin: 2%;
+  width: 25%;
+}
+
+.tagWithinPostByTag {
+  margin: 1%;
+}
+
+.tagWithinPostByTag > * {
+  color: grey;
+}
+
+.post_time {
+  color: hsl(171, 100%, 41%);
+}
