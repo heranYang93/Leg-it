@@ -1,24 +1,11 @@
 {{> navbar}}
-<div class="container">
-    {{#each postsData}}
-    {{> imageCard}}
-    {{/each}}  
-</div>
 
-<section class ='card' id='tagArea'>
-    {{#each tagArr}}
-    {{> singleTag}}
-    {{/each}}  
-</section>
-
-<script type="module" src='/js/likePost.js'></script>
 {{#each postsData}}
 {{> imageCard}}
-{{> commentCard}}
+{{!-- {{> commentCard}} --}}
 {{> modal}}
+{{/each}}
 
-{{/each}}  
-</div>
-    <script type="module" src='/js/likePost.js'></script>
-        <script type="module" src='/js/modal.js'></script>
+<script type="module" src='/js/likePost.js'></script>
+<script type="module" src='/js/modal.js'></script>
 <script type='module' src='/js/follow.js'></script>
