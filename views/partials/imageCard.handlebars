@@ -29,6 +29,7 @@
     </figure>
   </div>
   <div class='level is-mobile' style='marginBottom: 0'>
+
     <div class='level-left'>
       <span
         class='card-header-title level-item'
@@ -51,4 +52,11 @@
       </span>
     </div>
   </div>
+  {{!-- hy >>> --}}
+    <section class ='level-left' id='tagArea'>
+        {{#each tags}}
+        {{> singleTag}}
+        {{/each}}  
+    </section>
+{{!-- <<< hy --}}
 </article>
