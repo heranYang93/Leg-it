@@ -1,9 +1,9 @@
 // >>> hy for debugging
-const pageToRender = 'tag';
+const pageToRender = 'postsByTag';
 // <<< hy for debugging
 
 const router = require('express').Router();
-const { Post, Tag } = require('../../../models');
+const { Post, Tag, User } = require('../../../models');
 const withAuth = require('../../../utils/auth');
 
 router.get('/:id', async (req, res) => {
@@ -11,21 +11,28 @@ router.get('/:id', async (req, res) => {
     //update lego model itself and get the lego model id
     const getPostsByTag = await Tag.findOne({
       where: { id: req.params.id },
-      include: Post,
+      include: [{ model: Post, include: [{ model: User }, { model: Tag }] }],
     });
 
-    const postsWithThisTag = getPostsByTag.posts.map((singlePost) => {
-      return singlePost.dataValues;
+    const tagName = getPostsByTag.dataValues.title;
+
+    const postArr = getPostsByTag.posts.map((singlePost) => {
+      const thisPost = singlePost.dataValues;
+      const userName = singlePost.user.dataValues.username;
+
+      const otherTags = singlePost.tags.map((singleTag) => {
+        return {
+          tagId: singleTag.dataValues.id,
+          tagTitle: singleTag.dataValues.title,
+        };
+      });
+
+      return { thisPost, userName, otherTags };
     });
 
-    console.log(
-      `IN GET POST BY TAG ROUTE, GOT TAG ID:${getPostsByTag.dataValues.id}`
-    );
+    console.log(postArr);
 
-    res
-      .status(200)
-      .json(postsWithThisTag)
-      .render(pageToRender, { postsWithThisTag });
+    res.render(pageToRender, { tagName, postArr });
   } catch (err) {
     console.error(err.message);
   }
