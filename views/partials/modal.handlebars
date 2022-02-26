@@ -2,7 +2,8 @@
 <div class='modal actions-modal'>
   <div class='modal-background'></div>
   <div class='modal-content has-background-white'>
-    <button class='button is-medium is-fullwidth'>Follow</button>
-    <button class='button is-medium is-fullwidth'>Cancel</button>
+    <button class='button follow-action is-medium is-fullwidth'>
+      {{#if follower}}Unfollow{{else}}Follow{{/if}}</button>
+    <button class='button cancel is-medium is-fullwidth'>Cancel</button>
   </div>
 </div>
