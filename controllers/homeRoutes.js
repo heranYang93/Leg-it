@@ -27,7 +27,7 @@ router.get('/', async (req, res) => {
       postsData: postsData,
       signedIn: req.session.loggedIn,
       loggedOut: !req.session.loggedIn,
-      user: req.session.user_name,
+      user: req.session.user.username,
     });
   } catch (error) {
     res.status(500).json({ msg: error });
@@ -109,6 +109,11 @@ router.get('/feed', async (req, res) => {
           attributes: {
             exclude: ['password', 'email'],
           },
+          include: [
+            {
+              model: Follower,
+            },
+          ],
         },
         {
           model: Like,
@@ -131,6 +136,13 @@ router.get('/feed', async (req, res) => {
       (e) =>
         (e.like =
           e.likes.filter((e) => e.user_id === req.session.user.id).length > 0)
+    );
+    console.log(postsData, 'followers');
+    postsData.map(
+      (e) =>
+        (e.follower =
+          e.user.followers.filter((e) => e.user_id === req.session.user.id)
+            .length > 0)
     );
     console.log(postsData);
     res.render('feed', {
