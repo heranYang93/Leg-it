@@ -1,12 +1,17 @@
 <article class='card' id='{{id}}'>
-  <div class='is-flex'>
-    <a href='/posts/{{id}}'>
-      <div class='level-left'>
-        <h2 class='card-header-title level-left'>
-          {{user.username}}
-        </h2>
-      </div>
-    </a>
+  <div class='is-flex is-justify-content-space-between'>
+    <div class='level-left'>
+      <h2 class='card-header-title username level-left' user-id='{{user.id}}'>
+        {{user.username}}
+        {{#if follower}}
+          <span class='ml-1 username-within'>• Following</span>
+        {{else}}
+          <span class='ml-1 username-within'>•<span
+              class='ml-1 has-text-link is-clickable'
+            >Follow</span></span>
+        {{/if}}
+      </h2>
+    </div>
     <div class='level-right'>
       <h2 class='card-header-title level-right'>
         <div class='modal-trigger'>

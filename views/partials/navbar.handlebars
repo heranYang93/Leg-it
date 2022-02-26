@@ -28,7 +28,7 @@
             <i class="fa fa-book"></i>
           </span>
           </a>
-          {{#if loggedOut}}
+          {{#if signedIn}}
           <div class="dropdown">
   <div class="dropdown-trigger">
     <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
@@ -43,7 +43,7 @@
         Profile
       </a>
       <hr class="dropdown-divider">
-      <a href="/login" class="dropdown-item">
+      <a id="logout-btn" class="dropdown-item">
        logout
       </a>
     </div>
