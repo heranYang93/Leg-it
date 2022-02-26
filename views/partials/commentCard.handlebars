@@ -1,0 +1,63 @@
+ <form class="commentForm">
+ <div class="field is-horizontal">
+    <div class="field-label is-normal">
+      <label class="label">Comment</label>
+    </div>
+    <div class="field-body">
+      <div class="field">
+        <div class="control">
+          <textarea
+            class="textarea"
+            placeholder="Write your comment"
+            id="comment_text"
+          ></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <div class="field is-horizontal">
+    <div class="field-label">
+      <!-- Left empty for spacing -->
+    </div>
+    <div class="field-body">
+      <div class="field">
+        <div class="control">
+          <button
+            class="button is-primary"
+            type="submit"
+            id="submitBtn"
+           
+            value="{{id}}"
+          >
+            Submit Comment
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  </form>
+  <script type="module" src="/js/postComment.js"></script>
+
+{{#each comments}}
+  <div class='card is-flex is-align-items-center '
+  style="max-height: 100px">
+  {{!-- max height will break if comment is too big --}}
+        <img
+        class="mr-2"
+        style="max-width: 2rem; border-radius: 100%;"
+          src=' https://i.kym-cdn.com/photos/images/facebook/001/701/650/aa8.jpg'
+        />
+        <p>
+          <span
+            class='has-text-primary is-size-9 is-uppercase has-text-weight-bold'
+          >
+          {{user.username}}: </span>
+          {{comment_text}}
+          </p> 
+            
+  </div>
+{{/each}}
+
+<script type="module" src="/js/postComment.js"></script>

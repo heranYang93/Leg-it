@@ -97,6 +97,7 @@ a {
 .card {
   max-width: 600px;
   margin: auto;
+  margin-bottom: 10px;
 }
 
 #tagArea {

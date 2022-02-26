@@ -8,6 +8,7 @@ const { Comment } = require('../../models');
 
 router.post('/', async (req, res) => {
     try {
+        console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", req.body)
         const newComment = await Comment.create({
                 comment_text: req.body.comment_text,
                 post_id: req.body.post_id,
@@ -15,7 +16,7 @@ router.post('/', async (req, res) => {
             })
             res.json({newComment, success: true});}
             catch (err) {
-                console.log(err);
+                console.log(err.message);
                 res.status(500).json(err);
             }
 });
