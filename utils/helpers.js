@@ -9,4 +9,16 @@ module.exports = {
     }).format(new Date(date));
     // return date.toLocaleTimeString();
   },
+
+  post_time: (date) => {
+    // 'toLocaleTimeString()' formats the time as H:MM:SS AM/PM
+    return Intl.DateTimeFormat('en-GB', {
+      month: 'long',
+      day: 'numeric',
+      year: 'numeric',
+      minute: 'numeric',
+      hour: 'numeric',
+    }).format(new Date(date));
+    // return date.toLocaleTimeString();
+  },
 };
