@@ -1,0 +1,39 @@
+<div class='card single-post-by-tag'>
+  <div class='card-image'>
+    <figure class='image is-4by3'>
+      <img src='{{thisPost.post_image}}' alt='{{thisPost.post_title}}' />
+    </figure>
+  </div>
+  <div class='card-content'>
+
+    <div class='media'>
+      <div class='media-left'>
+        <figure class='image is-48x48'>
+          <img
+            src='https://static.turbosquid.com/Preview/2019/07/24__16_40_34/001.pngCC3F8D22-8EB0-4C2D-8B34-5F386F68ABC5Large.jpg'
+            alt='{{userName}}'
+          />
+        </figure>
+      </div>
+      <div class='media-content'>
+        <p class='title is-4'>@{{userName}}</p>
+        <p class='subtitle is-primary is-7'>{{thisPost.post_likes}} users liked this</p>
+      </div>
+    </div>
+
+    <div class='content'>
+      {{thisPost.post_title}}
+    </div>
+
+    <div class='content otherTagsArea'>
+      {{#each otherTags}}
+      {{> singleTag2}}
+      {{/each}}
+    </div>
+
+    <div class='post_time content is-small'>
+      {{post_time thisPost.updatedAt}}
+    </div>
+
+  </div>
+</div>
