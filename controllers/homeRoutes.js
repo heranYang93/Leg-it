@@ -222,4 +222,12 @@ router.get('/register', async (req, res) => {
   }
 });
 
+router.get('/upload', async (req, res) => {
+  try {
+    res.render('upload');
+  } catch (error) {
+    res.status(500).json({ msg: error });
+  }
+});
+
 module.exports = router;

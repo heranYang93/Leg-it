@@ -1,5 +1,19 @@
+const { cloudinary } = require('../../utils/cloudinary');
 const router = require('express').Router();
 const { Post } = require('../../models');
+
+router.post('/upload', async (req, res) => {
+  try {
+    console.log(req.body);
+    const fileStr = req.body.data;
+    const uploadResponse = await cloudinary.uploader.upload(fileStr);
+    console.log(uploadResponse);
+    res.json({ msg: 'success' });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ err: 'Something went wrong' });
+  }
+});
 
 router.post('/', async (req, res) => {
   try {
