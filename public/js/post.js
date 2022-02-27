@@ -1,7 +1,7 @@
-import { makeRequest } from './helpers.js';
+// import { makeRequest } from './helpers.js';
 
-const postForm = document.querySelector('.form');
-const input = document.querySelector('input[type=file]');
+const postBtn = document.querySelector('.btn-post');
+// const input = document.querySelector('input[type=file]');
 
 function readFile() {
   if (this.files && this.files[0]) {
@@ -17,6 +17,7 @@ function readFile() {
 
 const handleSubmitFile = (e) => {
   e.preventDefault();
+  // document.querySelector('.btn-post').addClass('is-loading');
   if (!document.querySelector('input[type=file]')['files'][0]) return;
   const reader = new FileReader();
   reader.readAsDataURL(document.querySelector('input[type=file]')['files'][0]);
@@ -26,6 +27,9 @@ const handleSubmitFile = (e) => {
   reader.onerror = () => {
     console.error('AHHHHHHHH!!');
   };
+  document
+    .querySelector('.modal-background.upload')
+    .classList.remove('is-active');
 };
 
 const uploadImage = async (base64EncodedImage) => {
@@ -41,4 +45,4 @@ const uploadImage = async (base64EncodedImage) => {
 };
 
 document.getElementById('inp').addEventListener('change', readFile);
-postForm.addEventListener('submit', handleSubmitFile);
+postBtn.addEventListener('click', handleSubmitFile);

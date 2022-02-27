@@ -8,10 +8,27 @@ router.post('/upload', async (req, res) => {
     const fileStr = req.body.data;
     const uploadResponse = await cloudinary.uploader.upload(fileStr);
     console.log(uploadResponse);
-    res.json({ msg: 'success' });
+    console.log(
+      {
+        post_title: 'cloudinary upload',
+        post_image: uploadResponse.url,
+        post_video: 'cloudinary',
+        post_likes: '0',
+        user_id: req.session.user.id,
+      },
+      'test'
+    );
+    const newPost = await Post.create({
+      post_title: 'cloudinary upload',
+      post_image: uploadResponse.url,
+      post_video: 'cloudinary',
+      post_likes: '0',
+      user_id: req.session.user.id,
+    });
+    res.json({ newPost, success: true });
   } catch (err) {
     console.error(err);
-    res.status(500).json({ err: 'Something went wrong' });
+    res.status(500).send(err);
   }
 });
 

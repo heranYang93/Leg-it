@@ -73,7 +73,7 @@
 }
 
 a {
-  width: 100%;
+  /* width: 100%; */
   object-fit: cover;
 }
 
@@ -107,7 +107,6 @@ a {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  flex
 }
 
 #tagArea > * {

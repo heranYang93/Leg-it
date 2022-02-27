@@ -9,9 +9,12 @@ uploadModalTrigger.addEventListener('click', function () {
     uploadModalBg.addEventListener('click', function () {
       uploadActionsModal.classList.remove('is-active');
     });
-    // document.querySelector('.cancel').addEventListener('click', function () {
-    //   uploadActionsModal.classList.remove('is-active');
-    // });
+    document.querySelector('.cancel').addEventListener('click', function () {
+      uploadActionsModal.classList.remove('is-active');
+    });
+    document.querySelector('.delete').addEventListener('click', function () {
+      uploadActionsModal.classList.remove('is-active');
+    });
   } catch (error) {
     console.error(error);
   }
