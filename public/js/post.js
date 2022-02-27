@@ -17,19 +17,18 @@ function readFile() {
 
 const handleSubmitFile = (e) => {
   e.preventDefault();
-  // document.querySelector('.btn-post').addClass('is-loading');
+  document.querySelector('.btn-post').classList.add('is-loading');
   if (!document.querySelector('input[type=file]')['files'][0]) return;
   const reader = new FileReader();
   reader.readAsDataURL(document.querySelector('input[type=file]')['files'][0]);
-  reader.onloadend = () => {
-    uploadImage(reader.result);
+  reader.onloadend = async () => {
+    await uploadImage(reader.result);
+    document.querySelector('.btn-post').classList.remove('is-loading');
+    document.location.replace('/');
   };
   reader.onerror = () => {
     console.error('AHHHHHHHH!!');
   };
-  document
-    .querySelector('.modal-background.upload')
-    .classList.remove('is-active');
 };
 
 const uploadImage = async (base64EncodedImage) => {
