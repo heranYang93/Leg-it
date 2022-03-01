@@ -101,16 +101,15 @@ a {
 }
 
 #tagArea {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  padding: 10px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
 
 #tagArea > * {
-  margin: 1%;
+  margin-top: 1%;
+  margin-bottom: 0%;
+  margin-right: 2%;
 }
 
 #tagArea > .button > a {
@@ -143,4 +142,25 @@ a {
 
 .post_time {
   color: hsl(171, 100%, 41%);
+}
+
+#personalPagePost {
+  margin-left: 2%;
+  margin-right: 2%;
+  flex: 1, 1, 50%;
+  height: 10%;
+}
+
+.highlight {
+  color: hsl(171, 100%, 41%);
+}
+
+#personalPostSmall {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+#personalPostSmall > * {
+  margin: 0;
 }

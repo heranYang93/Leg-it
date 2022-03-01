@@ -1,0 +1,68 @@
+<div class='card single-post-by-tag'>
+  <div class='card-image'>
+    <figure class='image is-4by3'>
+      <img src='{{post_image}}' alt='{{post_title}}' />
+    </figure>
+  </div>
+
+  <div class='card-content'>
+    <div class='media'>
+      <div class='media-left'>
+        <figure class='image is-48x48'>
+          <img
+            src='https://static.turbosquid.com/Preview/2019/07/24__16_40_34/001.pngCC3F8D22-8EB0-4C2D-8B34-5F386F68ABC5Large.jpg'
+            alt='{{userName}}'
+          />
+        </figure>
+      </div>
+      <div id='personalPostSmall' class='media-content'>
+        <p class='content highlight is-small'>{{post_likes}} users liked this</p>
+        <p class='content is-small'> {{post_title}}</p>
+        <p class='content is-small'> Last update: {{post_time updatedAt}}</p>
+      </div>
+    </div>
+
+    <div class='content'>
+      {{post_title}}
+    </div>
+
+    <div id='tagArea' class='content otherTagsArea'>
+      {{#each tags}}
+      {{> singleTag}}
+      {{/each}}
+    </div>
+
+    <button id='editBtn' class="button is-rounded">
+      <i class="fas fa-edit"></i>
+    </button>
+
+    <div id='postEditingModal' class="modal" value="{{id}}">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Edit post</p>
+          <button id='closeBtn' class="delete" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+          <div id="tagArea">
+            {{#each tags}}
+            {{> singleTag3_personalModal}}
+            {{/each}}
+          </div>
+          <br>
+          <div class="field">
+            <div class="control">
+              <textarea class="textarea">{{post_title}}</textarea>
+            </div>
+          </div>
+        </section>
+        <footer class="modal-card-foot">
+          <button id='saveBtn' class="button is-small is-warning">Update</button>
+        </footer>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script type="module" src='/js/personalPageHelper.js'></script>
