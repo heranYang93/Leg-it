@@ -21,6 +21,7 @@ router.get('/', async (req, res) => {
       order: [['updatedAt', 'DESC']],
     });
     const postsData = dbpostsData.map((el) => el.get({ plain: true }));
+    console.log(postsData);
     res.render('posts', {
       title: 'Lego Posts',
       postsData: postsData,
@@ -28,7 +29,7 @@ router.get('/', async (req, res) => {
       loggedOut: !req.session.loggedIn,
     });
   } catch (error) {
-    res.status(500).send({ msg: error });
+    res.status(500).json({ msg: error });
   }
 });
 
@@ -212,17 +213,17 @@ router.get('/favourites', async (req, res) => {
   }
 });
 
-router.get('/login', async (req, res) => {
+router.get('/register', async (req, res) => {
   try {
-    res.render('login');
+    res.render('register');
   } catch (error) {
     res.status(500).json({ msg: error });
   }
 });
 
-router.get('/register', async (req, res) => {
+router.get('/login', async (req, res) => {
   try {
-    res.render('register');
+    res.render('login');
   } catch (error) {
     res.status(500).json({ msg: error });
   }
