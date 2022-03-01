@@ -15,19 +15,11 @@ document.addEventListener('DOMContentLoaded', function () {
     element.addEventListener('click', async (event) => {
       event.preventDefault();
       try {
-        actionsModal.classList.add('is-active'); // modal status to active to enable the following event listener to exit modal screen on modal-background click
-
-        modalBg.addEventListener('click', function () {
-          actionsModal.classList.remove('is-active');
-          deletePost.classList.add('is-hidden');
-        });
-        document
-          .querySelector('.cancel.actions')
-          .addEventListener('click', function () {
-            actionsModal.classList.remove('is-active');
-            deletePost.classList.add('is-hidden');
-          });
         const id = element.getAttribute('user-id');
+        const postId =
+          element.parentElement.parentElement.parentElement.parentElement.id;
+
+        console.log(postId, 'post-id');
         console.log(id, 'user-id');
         const getData = await getRequest(`/api/follow/${id}`);
         const getUser = await getRequest(`/api/users/user`);
@@ -43,10 +35,35 @@ document.addEventListener('DOMContentLoaded', function () {
         if (+id === +getUser.user) {
           deletePost.classList.remove('is-hidden');
         }
+        actionsModal.classList.add('is-active'); // modal status to active to enable the following event listener to exit modal screen on modal-background click
+
+        modalBg.addEventListener('click', function () {
+          actionsModal.classList.remove('is-active');
+          deletePost.classList.add('is-hidden');
+        });
+        document
+          .querySelector('.cancel.actions')
+          .addEventListener('click', function () {
+            actionsModal.classList.remove('is-active');
+            deletePost.classList.add('is-hidden');
+          });
         followBtn.addEventListener('click', async (event) => {
           event.preventDefault();
           try {
             const postData = await makeRequest(`/api/follow/${id}`, 'POST');
+            console.log(postData);
+            window.location.reload();
+          } catch (error) {
+            console.log('Failed to login', error);
+          }
+        });
+        deletePost.addEventListener('click', async (event) => {
+          event.preventDefault();
+          try {
+            const postData = await makeRequest(
+              `/api/posts/${postId}`,
+              'DELETE'
+            );
             console.log(postData);
             window.location.reload();
           } catch (error) {
