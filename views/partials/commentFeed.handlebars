@@ -1,15 +1,11 @@
 <div>
-{{#each comments}}
-{{#ifEquals ../user_id user_id }}
 
-<div class='card is-flex is-align-items-center '
+{{#limitEach comments 2}}
+{{#ifEquals ../user_id user_id }}
+<div class=' is-flex is-align-items-center '
   style="max-height: 100px">
   {{!-- max height will break if comment is too big --}}
-        <img
-        class="mr-2"
-        style="max-width: 2rem; border-radius: 100%;"
-          src=' https://i.kym-cdn.com/photos/images/facebook/001/701/650/aa8.jpg'
-        />
+        
         <p>
           <span
             class='has-text-primary is-size-9 is-uppercase has-text-weight-bold'
@@ -20,28 +16,18 @@
             
   </div>
 
-
-
-
-
-
-
-
-
-
-
 {{/ifEquals}}
-{{/each}}
+{{/limitEach}}
 </div>
 
-<div>
+<div class="is-flex  is-align-items-center">
     {{#if comments}}
-    <div class="card is-flex  is-align-items-center has-background-light">
+    <div>
     <a href='/posts/{{id}}'>
-    <button class="button button-is-text has-text-grey">VIEW ALL {{comments.length}} COMMENTS</button>
+    <p class="has-text-grey">View all {{comments.length}} comments</p>
     </a>
     </div>
     {{else}}
     <div></div>
     {{/if}}
-</div>
+</div>  

@@ -1,3 +1,4 @@
+<div class="card p-3">
  <form class="commentForm">
  <div class="field is-horizontal">
     <div class="field-label is-normal">
@@ -38,6 +39,7 @@
   </div>
   
   </form>
+  </div>
   <script type="module" src="/js/postComment.js"></script>
 <div id="commentContainer">
 {{#each comments}}
@@ -47,7 +49,7 @@
         <img
         class="mr-2"
         style="max-width: 2rem; border-radius: 100%;"
-          src=' https://i.kym-cdn.com/photos/images/facebook/001/701/650/aa8.jpg'
+          src=' https://cdn.ebaumsworld.com/2020/01/13/021054/86172703/lego-star-wars-profile-4.jpg'
         />
         <div class="">
 
@@ -60,9 +62,9 @@
           {{comment_text}}
           </p> 
           
-          {{../user.username}}
+            {{#if signedIn}}
           <button class="delete-post-btn button is-info is-light is-small" data-id={{id}}>DEL</button>
-
+            {{/if}}
 
           {{!-- <button class="update-post-btn button is-info is-light  is-small" comment-id={{id}}>EDIT</button> --}}
           </div>
