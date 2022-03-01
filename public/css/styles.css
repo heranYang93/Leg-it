@@ -107,7 +107,6 @@ a {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  flex
 }
 
 #tagArea > * {
@@ -123,7 +122,6 @@ a {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 1%;
 }
 
 .postsByTag > * {
