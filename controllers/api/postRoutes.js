@@ -1,5 +1,36 @@
+const { cloudinary } = require('../../utils/cloudinary');
 const router = require('express').Router();
 const { Post } = require('../../models');
+
+router.post('/upload', async (req, res) => {
+  try {
+    console.log(req.body);
+    const fileStr = req.body.data;
+    const uploadResponse = await cloudinary.uploader.upload(fileStr);
+    console.log(uploadResponse);
+    console.log(
+      {
+        post_title: 'cloudinary upload',
+        post_image: uploadResponse.url,
+        post_video: 'cloudinary',
+        post_likes: '0',
+        user_id: req.session.user.id,
+      },
+      'test'
+    );
+    const newPost = await Post.create({
+      post_title: 'cloudinary upload',
+      post_image: uploadResponse.url,
+      post_video: 'cloudinary',
+      post_likes: '0',
+      user_id: req.session.user.id,
+    });
+    res.json({ newPost, success: true });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send(err);
+  }
+});
 
 router.post('/', async (req, res) => {
   try {

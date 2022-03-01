@@ -21,22 +21,19 @@ router.get('/', async (req, res) => {
       order: [['updatedAt', 'DESC']],
     });
     const postsData = dbpostsData.map((el) => el.get({ plain: true }));
+    console.log(postsData);
     res.render('posts', {
       title: 'Lego Posts',
       postsData: postsData,
       signedIn: req.session.loggedIn,
       loggedOut: !req.session.loggedIn,
-      // user: req.session.user.username,
     });
   } catch (error) {
-    res.status(500).send({ msg: error });
+    res.status(500).json({ msg: error });
   }
 });
 
 router.get('/posts/:id', async (req, res) => {
-  if (!req.session.loggedIn) {
-    return res.redirect('/login');
-  }
   try {
     const dbpostsData = await Post.findByPk(req.params.id, {
       include: [
@@ -46,11 +43,6 @@ router.get('/posts/:id', async (req, res) => {
           attributes: {
             exclude: ['password', 'email'],
           },
-          include: [
-            {
-              model: Follower,
-            },
-          ],
         },
         {
           model: Like,
@@ -67,7 +59,7 @@ router.get('/posts/:id', async (req, res) => {
         },
         {
           model: Tag,
-        },
+        }
       ],
     });
     const postsData = dbpostsData.get({ plain: true });
@@ -78,13 +70,9 @@ router.get('/posts/:id', async (req, res) => {
     postsData.like =
       postsData.likes.filter((e) => e.user_id === req.session.user.id).length >
       0;
-    // console.log(postsData.user.followers, 'followers');
-    // const { userFollowers: follower_id } = postsData.user.followers;
-    // console.log(userFollowers);
     postsData.follower =
       postsData.user.followers.filter((e) => e.user_id === req.session.user.id)
         .length > 0;
-    // console.log(postsData.follower, 'follower Status');
     res.render('singlePost', {
       title: 'Lego Posts',
       postsData: [postsData],
@@ -99,9 +87,62 @@ router.get('/posts/:id', async (req, res) => {
 });
 
 router.get('/feed', async (req, res) => {
-  if (!req.session.loggedIn) {
-    return res.redirect('/login');
+  try {
+    const dbpostsData = await Post.findAll({
+      include: [
+        {
+          model: User,
+          attributes: {
+            exclude: ['password', 'email'],
+          },
+        },
+        {
+          model: Like,
+        },
+        {
+          model: Comment,
+          include:[
+          {
+            model: User,
+            required: true,
+            attributes: { exclude: ['password', 'email'] },
+          },
+        ],
+        },
+        {
+          model: Tag
+        }
+      ],
+      order: [['updatedAt', 'DESC']],
+    });
+    let postsData = dbpostsData.map((el) => el.get({ plain: true }));
+    postsData.map(
+      (e) =>
+        (e.like =
+          e.likes.filter((e) => e.user_id === req.session.user.id).length > 0)
+    );
+
+    postsData.map(
+      (e) =>
+        (e.follower =
+          e.user.followers.filter((e) => e.user_id === req.session.user.id)
+            .length > 0)
+    );
+    postsData = postsData.filter((e) => e.follower === true);
+    console.log(postsData);
+    res.render('feed', {
+      title: 'Lego Posts',
+      postsData: postsData,
+      signedIn: req.session.logged_in,
+      loggedOut: !req.session.logged_in,
+      user: req.session.user_name,
+    });
+  } catch (error) {
+    res.status(500).json({ msg: error });
   }
+});
+
+router.get('/favourites', async (req, res) => {
   try {
     const dbpostsData = await Post.findAll({
       include: [
@@ -121,17 +162,10 @@ router.get('/feed', async (req, res) => {
         },
         {
           model: Comment,
-          include: [
-            {
-              model: User,
-              required: true,
-              attributes: { exclude: ['password', 'email'] },
-            },
-          ],
         },
         {
           model: Tag,
-        },
+        }
       ],
       order: [['updatedAt', 'DESC']],
     });
@@ -141,65 +175,20 @@ router.get('/feed', async (req, res) => {
         (e.like =
           e.likes.filter((e) => e.user_id === req.session.user.id).length > 0)
     );
-    console.log(postsData, 'followers');
     postsData.map(
       (e) =>
         (e.follower =
           e.user.followers.filter((e) => e.user_id === req.session.user.id)
             .length > 0)
     );
-    console.log(postsData);
-    res.render('feed', {
-      title: 'Lego Posts',
-      postsData: postsData,
-      signedIn: req.session.loggedIn,
-      loggedOut: !req.session.loggedIn,
-      user: req.session.user.username,
-    });
-  } catch (error) {
-    res.status(500).json({ msg: error });
-  }
-});
-
-router.get('/favourites', async (req, res) => {
-  if (!req.session.loggedIn) {
-    return res.redirect('/login');
-  }
-  try {
-    const dbpostsData = await Post.findAll({
-      include: [
-        {
-          model: User,
-          attributes: {
-            exclude: ['password', 'email'],
-          },
-        },
-        {
-          model: Like,
-        },
-        {
-          model: Comment,
-        },
-        {
-          model: Tag,
-        },
-      ],
-      order: [['updatedAt', 'DESC']],
-    });
-    const postsData = dbpostsData.map((el) => el.get({ plain: true }));
-    postsData.map(
-      (e) =>
-        (e.like =
-          e.likes.filter((e) => e.user_id === req.session.user.id).length > 0)
-    );
     const filteredData = postsData.filter((e) => e.like === true);
     console.log(filteredData);
     res.render('feed', {
       title: 'Lego Posts',
       postsData: filteredData,
-      signedIn: req.session.loggedIn,
-      loggedOut: !req.session.loggedIn,
-      user: req.session.user.username,
+      signedIn: req.session.logged_in,
+      loggedOut: !req.session.logged_in,
+      user: req.session.user_name,
     });
   } catch (error) {
     res.status(500).json({ msg: error });
@@ -217,6 +206,14 @@ router.get('/login', async (req, res) => {
 router.get('/register', async (req, res) => {
   try {
     res.render('register');
+  } catch (error) {
+    res.status(500).json({ msg: error });
+  }
+});
+
+router.get('/login', async (req, res) => {
+  try {
+    res.render('login');
   } catch (error) {
     res.status(500).json({ msg: error });
   }

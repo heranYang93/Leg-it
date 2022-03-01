@@ -66,4 +66,12 @@ router.post('/logout', (req, res) => {
   }
 });
 
+router.get('/user', (req, res) => {
+  if (req.session.loggedIn) {
+    res.status(200).json({ user: req.session.user.id });
+  } else {
+    res.status(404).end();
+  }
+});
+
 module.exports = router;

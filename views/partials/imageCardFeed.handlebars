@@ -4,9 +4,9 @@
       <h2 class='card-header-title username level-left' user-id='{{user.id}}'>
         {{user.username}}
         {{#if follower}}
-          <span class='ml-1 username-within' user-id='{{user.id}}'>• Following</span>
+          <span class='ml-1 username-within'>• Following</span>
         {{else}}
-          <span class='ml-1 username-within' user-id='{{user.id}}'>•<span
+          <span class='ml-1 username-within'>•<span
               class='ml-1 has-text-link is-clickable'
             >Follow</span></span>
         {{/if}}
@@ -14,7 +14,7 @@
     </div>
     <div class='level-right'>
       <h2 class='card-header-title level-right'>
-        <div class='modal-trigger actions' user-id='{{user.id}}'>
+        <div class='modal-trigger'>
           <span class='icon is-small'>
             <i class='fas fa-ellipsis-h' aria-hidden='true'></i>
           </span>
@@ -27,8 +27,9 @@
     <figure class='image is-1by1'>
       <img src={{post_image}} alt='{{post_title}}' />
     </figure>
+    
   </div>
-  <div class='level is-mobile' style='marginBottom: 0'>
+  <div class='level is-mobile m-0'>
 
     <div class='level-left'>
       <span
@@ -50,13 +51,25 @@
               likes</span></strong>
         {{/if}}
       </span>
+      <div class="has-text-centered">
+      <p class="p-1 is-size-7">
+        {{#post_time createdAt}}
+        {{/post_time}}
+      </p>
+    </div>
     </div>
   </div>
   {{!-- hy >>> --}}
-    <section class ='level-left' id='tagArea'>
+    <section class ='level-left m-0' id='tagArea'>
+      <div> 
         {{#each tags}}
         {{> singleTag}}
-        {{/each}}  
+        {{/each}}
+        </div>  
     </section>
+    <div class="pl-4 pr-4 pb-3">
+
+    {{>commentFeed}}
+    </div>
 {{!-- <<< hy --}}
 </article>

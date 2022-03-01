@@ -1,0 +1,27 @@
+<div class='modal actions-modal upload'>
+  <div class='modal-background upload'></div>
+  <div class='modal-card'>
+    <header class='modal-card-head'>
+      <p class='modal-card-title'>Create Post</p>
+      <button class='delete' aria-label='close'></button>
+    </header>
+    <section class='modal-card-body'>
+      <div>
+        <h1 class='title'>Upload an Image</h1>
+        <input id='inp' type='file' name='image' value='' class='form-input' />
+        <img
+          id='img'
+          src='https://via.placeholder.com/1169x780'
+          height='200'
+          alt=''
+        />
+      </div>
+    </section>
+    <footer class='modal-card-foot'>
+      <button class='btn button btn-post is-success'> Submit</button>
+      <a class='button is-danger cancel'>Cancel</a>
+    </footer>
+  </div>
+</div>
+
+<script type='module' src='/js/post.js'></script>
