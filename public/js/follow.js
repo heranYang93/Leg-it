@@ -6,11 +6,10 @@ console.log(followBtn);
 const handleFollowAction = async (event) => {
   event.preventDefault();
   const id = document.querySelector('.username').getAttribute('user-id');
+  const modalBg = document.querySelector('.actions-modal.actions');
   if (id) {
     try {
       const data = await makeRequest(`/api/follow/${id}`, 'POST');
-      document.querySelector('.actions-modal').classList.remove('is-active');
-      //   const element = document.getElementById('like-post');
       console.log(data);
       if (data.follow) {
         followBtn.innerHTML = '';
@@ -24,9 +23,10 @@ const handleFollowAction = async (event) => {
         followText.innerHTML = '';
         followText.innerHTML = `•<span
         class='ml-1 has-text-link is-clickable'
-      >Follow</span>`;
+        >Follow</span>`;
         followText.addEventListener('click', handleFollowAction);
       }
+      modalBg.classList.remove('is-active');
     } catch (error) {
       console.log('Failed to login', error);
     }

@@ -1,8 +1,13 @@
 {{> navbar}}
+{{> uploadModal}}
 <div class="container">
 {{#each postsData}}
 {{> imageCardFeed}}
 {{/each}}  
 </div>
+{{> modal}}
 
-    <script type="module" src='/js/likeAllPosts.js'></script>
+<script type="module" src='/js/likeAllPosts.js'></script>
+<script type='module' src='/js/uploadModal.js'></script>
+<script type='module' src='/js/modalAll.js'></script>
+<script type='module' src='/js/followAll.js'></script>
