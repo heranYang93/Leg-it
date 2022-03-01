@@ -1,5 +1,9 @@
 /* HOMEPAGE IMAGE HOVER ANIMATION  */
 
+body {
+  background-color: rgba(250, 250, 250);
+}
+
 @import url(https://fonts.googleapis.com/css?family=Raleway);
 .fig {
   color: white;

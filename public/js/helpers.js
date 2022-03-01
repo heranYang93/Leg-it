@@ -11,3 +11,15 @@ export const makeRequest = async (url, method, body = {}) => {
 
   return data;
 };
+
+export const getRequest = async (url) => {
+  const response = await fetch(url, {
+    headers: {
+      'Content-type': 'application/json',
+    },
+  });
+
+  const data = await response.json();
+
+  return data;
+};

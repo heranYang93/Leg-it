@@ -168,6 +168,11 @@ router.get('/favourites', async (req, res) => {
           attributes: {
             exclude: ['password', 'email'],
           },
+          include: [
+            {
+              model: Follower,
+            },
+          ],
         },
         {
           model: Like,
@@ -186,6 +191,12 @@ router.get('/favourites', async (req, res) => {
       (e) =>
         (e.like =
           e.likes.filter((e) => e.user_id === req.session.user.id).length > 0)
+    );
+    postsData.map(
+      (e) =>
+        (e.follower =
+          e.user.followers.filter((e) => e.user_id === req.session.user.id)
+            .length > 0)
     );
     const filteredData = postsData.filter((e) => e.like === true);
     console.log(filteredData);
