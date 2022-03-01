@@ -34,9 +34,6 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/posts/:id', async (req, res) => {
-  if (!req.session.loggedIn) {
-    return res.redirect('/login');
-  }
   try {
     const dbpostsData = await Post.findByPk(req.params.id, {
       include: [
@@ -46,11 +43,6 @@ router.get('/posts/:id', async (req, res) => {
           attributes: {
             exclude: ['password', 'email'],
           },
-          include: [
-            {
-              model: Follower,
-            },
-          ],
         },
         {
           model: Like,
@@ -67,7 +59,7 @@ router.get('/posts/:id', async (req, res) => {
         },
         {
           model: Tag,
-        },
+        }
       ],
     });
     const postsData = dbpostsData.get({ plain: true });
@@ -95,9 +87,6 @@ router.get('/posts/:id', async (req, res) => {
 });
 
 router.get('/feed', async (req, res) => {
-  if (!req.session.loggedIn) {
-    return res.redirect('/login');
-  }
   try {
     const dbpostsData = await Post.findAll({
       include: [
@@ -106,28 +95,23 @@ router.get('/feed', async (req, res) => {
           attributes: {
             exclude: ['password', 'email'],
           },
-          include: [
-            {
-              model: Follower,
-            },
-          ],
         },
         {
           model: Like,
         },
         {
           model: Comment,
-          include: [
-            {
-              model: User,
-              required: true,
-              attributes: { exclude: ['password', 'email'] },
-            },
-          ],
+          include:[
+          {
+            model: User,
+            required: true,
+            attributes: { exclude: ['password', 'email'] },
+          },
+        ],
         },
         {
-          model: Tag,
-        },
+          model: Tag
+        }
       ],
       order: [['updatedAt', 'DESC']],
     });
@@ -137,6 +121,7 @@ router.get('/feed', async (req, res) => {
         (e.like =
           e.likes.filter((e) => e.user_id === req.session.user.id).length > 0)
     );
+
     postsData.map(
       (e) =>
         (e.follower =
@@ -148,9 +133,9 @@ router.get('/feed', async (req, res) => {
     res.render('feed', {
       title: 'Lego Posts',
       postsData: postsData,
-      signedIn: req.session.loggedIn,
-      loggedOut: !req.session.loggedIn,
-      user: req.session.user.username,
+      signedIn: req.session.logged_in,
+      loggedOut: !req.session.logged_in,
+      user: req.session.user_name,
     });
   } catch (error) {
     res.status(500).json({ msg: error });
@@ -158,9 +143,6 @@ router.get('/feed', async (req, res) => {
 });
 
 router.get('/favourites', async (req, res) => {
-  if (!req.session.loggedIn) {
-    return res.redirect('/login');
-  }
   try {
     const dbpostsData = await Post.findAll({
       include: [
@@ -183,7 +165,7 @@ router.get('/favourites', async (req, res) => {
         },
         {
           model: Tag,
-        },
+        }
       ],
       order: [['updatedAt', 'DESC']],
     });
@@ -204,9 +186,9 @@ router.get('/favourites', async (req, res) => {
     res.render('feed', {
       title: 'Lego Posts',
       postsData: filteredData,
-      signedIn: req.session.loggedIn,
-      loggedOut: !req.session.loggedIn,
-      user: req.session.user.username,
+      signedIn: req.session.logged_in,
+      loggedOut: !req.session.logged_in,
+      user: req.session.user_name,
     });
   } catch (error) {
     res.status(500).json({ msg: error });
@@ -216,6 +198,14 @@ router.get('/favourites', async (req, res) => {
 router.get('/register', async (req, res) => {
   try {
     res.render('register');
+  } catch (error) {
+    res.status(500).json({ msg: error });
+  }
+});
+
+router.get('/login', async (req, res) => {
+  try {
+    res.render('login');
   } catch (error) {
     res.status(500).json({ msg: error });
   }
