@@ -217,7 +217,9 @@ router.get('/register', async (req, res) => {
 });
 router.get('/login', async (req, res) => {
   try {
-    res.render('login');
+    res.render('login', {
+      login: true,
+    });
   } catch (error) {
     res.status(500).json({ msg: error });
   }
