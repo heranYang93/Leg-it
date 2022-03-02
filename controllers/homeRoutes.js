@@ -88,7 +88,7 @@ router.get('/posts/:id', async (req, res) => {
       user: req.session.user.username,
     });
   } catch (error) {
-    res.status(500).json({ msg: error });
+    res.status(404).render('error');
   }
 });
 router.get('/feed', async (req, res) => {
@@ -222,4 +222,9 @@ router.get('/login', async (req, res) => {
     res.status(500).json({ msg: error });
   }
 });
+
+router.get('/*', (req, res) => {
+  res.redirect('/');
+});
+
 module.exports = router;
