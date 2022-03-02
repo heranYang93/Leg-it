@@ -1,0 +1,241 @@
+/*Animation credit to Kaitlyn Stahl: https://codepen.io/kaista/pen/GPzWbo */
+
+body {
+  background-color: #fdc800;
+  overflow: hidden;
+}
+
+.lego-container {
+  width: 50vw;
+  height: 100vh;
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  left: 40%;
+}
+
+.brick {
+  position: relative;
+  left: 33%;
+  top: -60%;
+}
+.side-1 {
+  position: absolute;
+  top: 108px;
+  left: 90px;
+  height: 60px;
+  width: 200px;
+  transform: skewY(-30deg);
+}
+.blue .side-1 {
+  background: #156dba;
+  box-shadow: inset 3px -3px 3px #4ba0ea;
+}
+.red .side-1 {
+  background: #e21b0c;
+  box-shadow: inset 3px -3px 3px #f6695e;
+}
+.yellow .side-1 {
+  background: #f2c602;
+  box-shadow: inset 3px -3px 3px #fee472;
+}
+.side-2 {
+  position: absolute;
+  top: 140px;
+  left: 0px;
+  height: 60px;
+  width: 90px;
+  transform: skewY(30deg);
+}
+.blue .side-2 {
+  background: #187bd1;
+  box-shadow: inset 3px -3px 3px #4ba0ea;
+}
+.red .side-2 {
+  background: #f2291a;
+  box-shadow: inset 3px -3px 3px #f6695e;
+}
+.yellow .side-2 {
+  background: #fdd217;
+  box-shadow: inset 3px -3px 3px #fee472;
+}
+.side-3 {
+  position: absolute;
+  top: 38px;
+  left: 30px;
+  height: 90px;
+  width: 230px;
+  background: #1e88e5;
+  transform: rotateZ(-30deg) skewX(30deg);
+}
+.blue .side-3 {
+  background: #1e88e5;
+  box-shadow: inset 3px -3px 3px #4ba0ea;
+}
+.red .side-3 {
+  background: #f44336;
+  box-shadow: inset 3px -3px 3px #f6695e;
+}
+.yellow .side-3 {
+  background: #fdd835;
+  box-shadow: inset 3px -3px 3px #fee472;
+}
+.stud {
+  position: absolute;
+  width: 36px;
+  height: 30px;
+  border-radius: 18px/10px;
+}
+.blue .stud {
+  background: #156dba;
+}
+.red .stud {
+  background: #e21b0c;
+}
+.yellow .stud {
+  background: #f2c602;
+}
+.stud:before {
+  content: '';
+  position: absolute;
+  height: 20px;
+  width: 36px;
+  border-radius: 18px/10px;
+}
+.blue .stud:before {
+  background: #1e88e5;
+  box-shadow: inset 3px 3px 0px #4ba0ea;
+}
+.red .stud:before {
+  background: #f44336;
+  box-shadow: inset 3px 3px 0px #f6695e;
+}
+.yellow .stud:before {
+  background: #fdd835;
+  box-shadow: inset 3px 3px 0px #fee472;
+}
+.stud-1 {
+  top: 95px;
+  left: 30px;
+}
+.stud-2 {
+  top: 118px;
+  left: 75px;
+}
+.stud-3 {
+  top: 68px;
+  left: 80px;
+}
+.stud-4 {
+  top: 90px;
+  left: 125px;
+}
+.stud-5 {
+  top: 40px;
+  left: 130px;
+}
+.stud-6 {
+  top: 62px;
+  left: 175px;
+}
+.stud-7 {
+  top: 15px;
+  left: 180px;
+}
+.stud-8 {
+  top: 38px;
+  left: 220px;
+}
+.brick.blue {
+  animation: fall 6s 0s linear infinite;
+}
+.brick.red {
+  animation: fall 6s 1.25s linear infinite;
+}
+.brick.yellow {
+  animation: fall 6s 2.5s linear infinite;
+}
+@-moz-keyframes fall {
+  0% {
+    top: -60%;
+  }
+  25% {
+    z-index: 3;
+    top: 20%;
+  }
+  50% {
+    z-index: 2;
+    top: 29%;
+  }
+  75% {
+    top: 38%;
+    z-index: 1;
+  }
+  100% {
+    top: 100%;
+  }
+}
+@-webkit-keyframes fall {
+  0% {
+    top: -60%;
+  }
+  25% {
+    z-index: 3;
+    top: 20%;
+  }
+  50% {
+    z-index: 2;
+    top: 29%;
+  }
+  75% {
+    top: 38%;
+    z-index: 1;
+  }
+  100% {
+    top: 100%;
+  }
+}
+@-o-keyframes fall {
+  0% {
+    top: -60%;
+  }
+  25% {
+    z-index: 3;
+    top: 20%;
+  }
+  50% {
+    z-index: 2;
+    top: 29%;
+  }
+  75% {
+    top: 38%;
+    z-index: 1;
+  }
+  100% {
+    top: 100%;
+  }
+}
+@keyframes fall {
+  0% {
+    top: -60%;
+  }
+  25% {
+    z-index: 3;
+    top: 20%;
+  }
+  50% {
+    z-index: 2;
+    top: 29%;
+  }
+  75% {
+    top: 38%;
+    z-index: 1;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+.columns {
+  margin-top: -1.25rem !important;
+}
