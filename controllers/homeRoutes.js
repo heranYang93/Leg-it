@@ -210,7 +210,9 @@ router.get('/favourites', async (req, res) => {
 });
 router.get('/register', async (req, res) => {
   try {
-    res.render('register');
+    res.render('register', {
+      register: true,
+    });
   } catch (error) {
     res.status(500).json({ msg: error });
   }

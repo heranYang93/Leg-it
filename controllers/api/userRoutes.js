@@ -48,6 +48,10 @@ router.post('/register', async (req, res) => {
 
     req.session.save(() => {
       req.session.loggedIn = true;
+      req.session.user = {
+        id: userData.id,
+        username: userData.username,
+      };
       res.status(200).json(userData);
     });
   } catch (err) {
