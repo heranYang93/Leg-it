@@ -40,12 +40,12 @@
 
         <header class="modal-card-head">
           <p class="modal-card-title">Edit post</p>
-          <button id='closeBtn' class="delete" aria-label="close" value={{id}}></button>
+          {{!-- <button id='closeBtn' class="delete" aria-label="close" value={{id}}></button> --}}
         </header>
 
         <section class="modal-card-body">
 
-          <div id="tagArea{{id}}" class='tagArea_manage'>
+          <div id="tagArea{{id}}" class=' field is-grouped is-grouped-multiline'>
           </div>
 
           <br>
@@ -55,8 +55,11 @@
               <input id='newTagInput{{id}}' class="input" type="text" placeholder="Tag (space or special characters are not allowed)">
             </p>
             <p class="control">
-              <button id='addNewTag' class="button is-warning" value={{id}}>
-                Add a New Tag
+              <button id='addNewTag' class="button is-primary" value={{id}}>
+                + Tag
+              </button>
+              <button id='closeBtn' class="button is-danger" value={{id}}>
+                Exit
               </button>
             </p>
           </div>

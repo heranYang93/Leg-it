@@ -6,10 +6,14 @@ const newTagBtnArr = document.querySelectorAll('#addNewTag');
 let vistingPost;
 
 const renderTags = async function (postId, tagAreaEl, tagArr) {
-  tagAreaEl.innerHTML = '';
+  tagAreaEl.innerHTML = null;
   tagArr.forEach((singleTag) => {
-    const createNewDeleteTagBtn = document.createElement('button');
+    const createNewDeleteTagBtn = document.createElement('a');
     createNewDeleteTagBtn.setAttribute('class', 'tag is-delete');
+    const createNewLinkEl = document.createElement('a');
+    createNewLinkEl.setAttribute('class', 'tag is-link');
+    createNewLinkEl.innerHTML = singleTag.title;
+
     createNewDeleteTagBtn.addEventListener('click', async (event) => {
       event.preventDefault;
       const thisTagId = singleTag.id;
@@ -18,7 +22,6 @@ const renderTags = async function (postId, tagAreaEl, tagArr) {
         body: JSON.stringify({ tag_id: thisTagId, post_id: postId }),
         headers: { 'Content-Type': 'application/json' },
       });
-      console.log(deleteThisTag);
       const getAllTags = await fetch(`/api/tag/getPureTags/${postId}`, {
         method: 'GET',
       });
@@ -27,17 +30,16 @@ const renderTags = async function (postId, tagAreaEl, tagArr) {
       await renderTags(postId, tagAreaEl, newTagArr);
     });
 
-    const createNewDeleteTagSpan = document.createElement('span');
-    createNewDeleteTagSpan.setAttribute('class', 'tag is-warning');
-    createNewDeleteTagSpan.innerHTML = singleTag.title;
+    const createNewDeleteTagSpan = document.createElement('div');
+    createNewDeleteTagSpan.setAttribute('class', 'tags has-addons');
+    createNewDeleteTagSpan.appendChild(createNewLinkEl);
+    createNewDeleteTagSpan.appendChild(createNewDeleteTagBtn);
 
-    const createWrappingDiv = document.createElement('div');
-    createWrappingDiv.setAttribute('class', 'tags has-addons');
+    const createControlWrappingEl = document.createElement('div');
+    createControlWrappingEl.setAttribute('class', 'control');
+    createControlWrappingEl.appendChild(createNewDeleteTagSpan);
 
-    createWrappingDiv.appendChild(createNewDeleteTagSpan);
-    createWrappingDiv.appendChild(createNewDeleteTagBtn);
-
-    tagAreaEl.append(createWrappingDiv);
+    tagAreaEl.append(createControlWrappingEl);
   });
 };
 
