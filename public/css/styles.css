@@ -1,4 +1,7 @@
 /* HOMEPAGE IMAGE HOVER ANIMATION  */
+:root {
+  --lego-yellow: #fdc800;
+}
 
 body {
   background-color: rgba(250, 250, 250);
@@ -148,6 +151,135 @@ a {
   color: hsl(171, 100%, 41%);
 }
 
+.NavButton {
+  border: none;
+  font-size: 2rem;
+}
+
+.NavButton:hover {
+  color: black;
+  transform: scale(1.2);
+}
+
+.navbar {
+  position: fixed;
+  width: 100vw;
+}
+
+.yellowBG {
+  background-color: var(--lego-yellow);
+}
+
+.navHolder {
+  min-height: 10%;
+}
+
+.navHolderFeed {
+  min-height: 14%;
+}
+
+.splashHeaderOne {
+  font-size: 4.5rem;
+  font-weight: bolder;
+  text-transform: uppercase;
+}
+
+.splashHeaderTwo {
+  font-size: 3rem;
+  font-weight: bolder;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+
+.splashButtons {
+  margin-left: 20px;
+  padding: 1rem 2rem 1rem 2rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 40px;
+  text-transform: uppercase;
+
+  font-weight: bolder;
+}
+
+.splashButtons:hover {
+  cursor: pointer;
+  background-color: darkgrey;
+  color: white;
+  transform: scale(1.1);
+}
+
+.videoIntro {
+  position: fixed;
+}
+
+@media only screen and (max-width: 670px) {
+  .splashHeaderOne {
+    font-size: 230%;
+  }
+  .splashHeaderTwo {
+    font-size: 200%;
+  }
+  .splashButtons {
+    margin-bottom: 30px;
+  }
+  .splashHolder {
+    display: none;
+  }
+}
+
+.splashContainer {
+  display: none;
+}
+
+@media only screen and (max-width: 670px) {
+  .splashHeaderOne {
+    font-size: 230%;
+  }
+  .splashHeaderTwo {
+    font-size: 200%;
+  }
+  .splashButtons {
+    margin-bottom: 30px;
+  }
+  .splashHolder {
+    display: none;
+  }
+}
+
+.splashContainer {
+  display: none;
+}
+
+@media only screen and (max-width: 830px) {
+  .splashVidHolder {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .navbar-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .NavButton {
+    font-size: 1.5rem;
+  }
+}
+@media only screen and (max-width: 390px) {
+  .NavButton {
+    flex-shrink: 1;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .logoNav {
+    display: none;
+  }
+}
+
 .comment-avatar {
   display: block;
   height: 32px;
@@ -200,4 +332,10 @@ img {
   margin-top: 5%;
   margin-bottom: 5%;
   width: 20%;
+}
+
+.postContainer {
+  display: flex;
+  align-items: center;
+  outline: red 2px solid;
 }
