@@ -1,12 +1,12 @@
 {{> navbar}}
 <div class="navHolder"> </div>
 <section class="hero is-black">
-  <div class="hero-body">
+  <div class="hero-body is-flex is-align-items-center is-flex-direction-column">
     <nav class="level">
-      <div class="level-item has-text-centered">
-        <div>
-          <figure class="image is-480x480">
-            <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
+      <div class=" level-item has-text-centered">
+        <div class="is-flex is-align-items-center is-flex-direction-column">
+          <figure class="image is-150x150" style="max-width: 150px">
+            <img class="is-rounded" src="{{userImg}}">
           </figure>
           <br>
           <p class="subtitle is-4">{{name}}</p>
@@ -25,7 +25,7 @@
       </div>
     </nav>
     <br>
-    <nav class="level">
+    <nav class="userStatsContainer level">
       <div class="level-item has-text-centered">
         <div>
           <p class="heading">POSTS</p>
