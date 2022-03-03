@@ -8,9 +8,18 @@
             <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
           </figure>
           <br>
-          <p class="subtitle is-4">{{userName}}</p>
+          <p class="subtitle is-4">{{name}}</p>
           <br>
-          <button class="button is-primary">+ Follow</button>
+
+        {{#if follower}}
+          <button class='button is-info is-light username-within' user-id='{{userId}}'>Following</button>
+        {{else}}
+          <button class='button is-primary username-within' user-id='{{userId}}'>+ <span
+              class='ml-1 has-text-link is-clickable'>
+            Follow
+            </button>
+        {{/if}}
+
         </div>
       </div>
     </nav>
@@ -30,7 +39,7 @@
       </div>
       <div class="level-item has-text-centered">
         <div>
-          <p class="heading">LIKED BY</p>
+          <p class="heading">LIKED</p>
           <p class="title">{{likeReceived}}</p>
         </div>
       </div>
@@ -46,11 +55,13 @@
 </section>
   
 <section class="bd-index-section">
-    <div class="container">
-        <div class="columns is-multiline">
+    <div class="container is-centered">
+        <div class="columns is-multiline is-tablet is-centered">
             {{#each postArr}}
             {{> postCard}}
             {{/each}}  
         </div>
     </div>
 </section>
+
+<script type='module' src='/js/followAll.js'></script>

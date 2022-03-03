@@ -39,6 +39,7 @@ router.get('/', async (req, res) => {
       loggedOut: !req.session.loggedIn,
     });
   } catch (error) {
+    console.log(error.message);
     res.status(500).json({ msg: error });
   }
 });

@@ -20,7 +20,7 @@ router.get('/', async (req, res) => {
       order: [['updatedAt', 'DESC']],
     });
     const postsData = dbpostsData.map((el) => el.get({ plain: true }));
-    console.log(postsData);
+    // console.log(postsData);
     res.render('posts', {
       title: 'Lego Posts',
       postsData: postsData,
@@ -141,7 +141,7 @@ router.get('/feed', async (req, res) => {
             .length > 0)
     );
     postsData = postsData.filter((e) => e.follower === true);
-    console.log(postsData);
+    // console.log(postsData);
     res.render('feed', {
       title: 'Lego Posts',
       postsData: postsData,
@@ -196,7 +196,7 @@ router.get('/favourites', async (req, res) => {
             .length > 0)
     );
     const filteredData = postsData.filter((e) => e.like === true);
-    console.log(filteredData);
+    // console.log(filteredData);
     res.render('feed', {
       title: 'Lego Posts',
       postsData: filteredData,
@@ -250,8 +250,6 @@ router.get('/community/:id', async (req, res) => {
     });
 
     userData = findUser.get({ plain: true });
-    console.log(userData);
-    const userName = userData.username;
     const postArr = userData.posts;
     const postAmount = postArr.length;
     let likeReceived = 0;
@@ -263,8 +261,17 @@ router.get('/community/:id', async (req, res) => {
     const followerAmount = followerArr.length;
     const commentAmount = userData.comments.length;
 
+    let follower = false;
+    followerArr.forEach((followData) => {
+      if (followData.user_id == userData.id) {
+        follower = true;
+      }
+    });
+
     res.render('userPage', {
-      userName,
+      userId: userData.id,
+      name: userData.username,
+      follower,
       postArr,
       likeReceived,
       postAmount,
