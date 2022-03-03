@@ -153,6 +153,7 @@ a {
 
 .NavButton {
   border: none;
+  font-size: 2rem;
 }
 
 .NavButton:hover {
@@ -170,8 +171,15 @@ a {
 }
 
 .navHolder {
-  min-height: 12%;
+  min-height: 10%;
 }
+
+.navHolderFeed {
+  min-height: 14%;
+}
+
+
+
 .splashHeaderOne{
 font-size: 4.5rem;
 font-weight: bolder;
@@ -259,6 +267,29 @@ color: white;
 }
 
 
+
+@media only screen and (max-width: 450px) {
+  .navbar-item{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+  .NavButton {
+    font-size: 1.5rem;
+  }
+
+}
+@media only screen and (max-width: 390px) {
+
+  .NavButton {
+    flex-shrink: 1;
+    
+  }
+
+}
+
+
 @media only screen and (max-width: 1000px) {
 .logoNav {
  display: none;
@@ -311,4 +342,11 @@ img {
 
 .is-delete {
   border: 0;
+}
+
+
+.postContainer{
+  display: flex;
+  align-items: center;
+  outline: red 2px solid;
 }
