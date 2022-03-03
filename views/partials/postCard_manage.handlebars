@@ -23,46 +23,50 @@
     </div>
 
     <div class='content'>
-      {{post_title}}
-    </div>
-
-    <div id='tagArea' class='content otherTagsArea'>
       {{#each tags}}
-      {{> singleTag}}
+      {{> singleTag_managePage}}
       {{/each}}
     </div>
 
-    <button id='editBtn' class="button is-rounded">
+    <button id='editBtn' class="button is-rounded" value={{id}}>
       <i class="fas fa-edit"></i>
     </button>
 
-    <div id='postEditingModal' class="modal" value="{{id}}">
+    <div id='edit{{id}}' class="modal">
+
       <div class="modal-background"></div>
+
       <div class="modal-card">
+
         <header class="modal-card-head">
           <p class="modal-card-title">Edit post</p>
-          <button id='closeBtn' class="delete" aria-label="close"></button>
+          <button id='closeBtn' class="delete" aria-label="close" value={{id}}></button>
         </header>
+
         <section class="modal-card-body">
-          <div id="tagArea">
-            {{#each tags}}
-            {{> singleTag3_personalModal}}
-            {{/each}}
+
+          <div id="tagArea{{id}}" class='tagArea_manage'>
           </div>
+
           <br>
-          <div class="field">
-            <div class="control">
-              <textarea class="textarea">{{post_title}}</textarea>
-            </div>
+
+          <div class="field is-grouped">
+            <p class="control is-expanded">
+              <input id='newTagInput{{id}}' class="input" type="text" placeholder="Tag (space or special characters are not allowed)">
+            </p>
+            <p class="control">
+              <button id='addNewTag' class="button is-warning" value={{id}}>
+                Add a New Tag
+              </button>
+            </p>
           </div>
         </section>
-        <footer class="modal-card-foot">
-          <button id='saveBtn' class="button is-small is-warning">Update</button>
-        </footer>
+
       </div>
+
     </div>
 
   </div>
+  
 </div>
 
-<script type="module" src='/js/personalPageHelper.js'></script>

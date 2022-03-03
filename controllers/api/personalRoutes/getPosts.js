@@ -31,14 +31,8 @@ router.get('/', async (req, res) => {
 
     const postsByUser = db_postsByUser.get({ plain: true });
     const postArr = postsByUser.posts;
-    postArr.forEach((x) => {
-      console.log('x', x);
-      console.log('likes', x.likes);
-      console.log('tags', x.tags);
-    });
-    console.log(postsByUser);
 
-    res.render('personal', {
+    res.render('managePosts', {
       userName,
       postArr,
       signedIn: req.session.loggedIn,

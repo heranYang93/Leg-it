@@ -1,15 +1,14 @@
   {{> navbar}}
- <section class="hero is-white">
+  <section class="hero is-black">
   <div class="hero-body">
-    <p class="subtitle is-$grey-lighter level-item is-5">
-      Here are the posts under
-      <span class="tag is-small is-primary level-item">#{{tagName}}</span>
+    <p class="title is-4">
+      <span class="highlight">#{{tagName}}</span>
     </p>
   </div>
 </section>
   
-  <section class="postsByTag is-flex">
+  <section class="is-flex is-flex-wrap-wrap is-justify-content-flex-start is-flex-grow-1 is-flex-shrink-0">
     {{#each postArr}}
-    {{> postUnderTag}}
+    {{> postCard_tag}}
     {{/each}}  
   </section>

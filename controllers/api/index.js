@@ -6,6 +6,7 @@ const commentRoutes = require('./commentRoutes');
 const tagRoutes = require('./tagRoutes');
 const followRoutes = require('./followRoutes');
 const personalRoutes = require('./personalRoutes');
+const peopleRoutes = require('./peopleRoutes');
 
 router.use('/posts', postRoutes);
 router.use('/like', likeRoutes);
@@ -13,6 +14,7 @@ router.use('/users', userRoutes);
 router.use('/comments', commentRoutes);
 router.use('/tag', tagRoutes);
 router.use('/follow', followRoutes);
-router.use('/personal', personalRoutes);
+router.use('/manage', personalRoutes);
+router.use('/people', peopleRoutes);
 
 module.exports = router;
