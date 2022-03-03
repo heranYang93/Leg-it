@@ -177,6 +177,13 @@ router.get('/favourites', async (req, res) => {
         },
         {
           model: Comment,
+          include: [
+            {
+              model: User,
+              required: true,
+              attributes: { exclude: ['password', 'email'] },
+            },
+          ],
         },
         {
           model: Tag,
