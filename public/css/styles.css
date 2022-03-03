@@ -195,3 +195,9 @@ img {
 .is-delete {
   border: 0;
 }
+
+#legoSurprisedFace {
+  margin-top: 5%;
+  margin-bottom: 5%;
+  width: 20%;
+}

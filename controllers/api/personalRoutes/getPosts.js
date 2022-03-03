@@ -28,19 +28,25 @@ router.get('/', async (req, res) => {
         },
       ],
     });
+    if (db_postsByUser) {
+      const postsByUser = db_postsByUser.get({ plain: true });
 
-    const postsByUser = db_postsByUser.get({ plain: true });
-    const postArr = postsByUser.posts;
+      const postArr = postsByUser.posts;
 
-    res.render('managePosts', {
-      userName,
-      postArr,
-      signedIn: req.session.loggedIn,
-      loggedOut: !req.session.loggedIn,
-    });
+      res.render('managePosts', {
+        userName,
+        postArr,
+        signedIn: req.session.loggedIn,
+        loggedOut: !req.session.loggedIn,
+      });
+    } else {
+      res.render('noPost', {
+        signedIn: req.session.loggedIn,
+        loggedOut: !req.session.loggedIn,
+      });
+    }
   } catch (error) {
-    console.log(error.message);
-    res.status(500).json({ msg: error });
+    res.send(error.message);
   }
 });
 

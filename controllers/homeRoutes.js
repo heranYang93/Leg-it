@@ -283,7 +283,6 @@ router.get('/community/:id', async (req, res) => {
       loggedOut: !req.session.loggedIn,
       user: req.session.user.username,
     });
-    // res.json(userData);
   } catch (error) {
     res.send(error.message);
     res.status(500).json({ msg: error });
@@ -292,6 +291,13 @@ router.get('/community/:id', async (req, res) => {
 
 router.get('/*', (req, res) => {
   res.redirect('/');
+});
+
+router.get('/noPost', (req, res) => {
+  res.render('noPost', {
+    signedIn: req.session.loggedIn,
+    loggedOut: !req.session.loggedIn,
+  });
 });
 
 module.exports = router;
