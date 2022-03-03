@@ -2,7 +2,7 @@
   <div class='is-flex is-justify-content-space-between'>
     <div class='level-left'>
       <h2 class='card-header-title username level-left' user-id='{{user.id}}'>
-        {{user.username}}
+        <a href='/community/{{user.id}}'>{{user.username}}</a>
         {{#if follower}}
           <span class='ml-1 username-within' user-id='{{user.id}}'>• Following</span>
         {{else}}

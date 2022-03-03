@@ -32,7 +32,12 @@ router.get('/:id', async (req, res) => {
 
     console.log(postArr);
 
-    res.render(pageToRender, { tagName, postArr });
+    res.render(pageToRender, {
+      tagName,
+      postArr,
+      signedIn: req.session.loggedIn,
+      loggedOut: !req.session.loggedIn,
+    });
   } catch (err) {
     console.error(err.message);
   }

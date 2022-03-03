@@ -1,0 +1,19 @@
+{{> navbar}}
+<section class="hero is-black">
+  <div class="hero-body">
+    <p class="title">
+      Hi! <span class="highlight">{{userName}}</span>  👋
+    </p>
+    <p class="subtitle is-6">
+      Catch up with your posts
+    </p>
+  </div>
+</section>
+
+<section class="is-flex is-flex-wrap-wrap is-justify-content-flex-start is-flex-grow-1 is-flex-shrink-0">
+  {{#each postArr}}
+  {{> postCard_manage}}
+  {{/each}}  
+</section>
+
+<script type='module' src="/js/manageHelper.js"></script>

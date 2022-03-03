@@ -2,10 +2,13 @@
 <div class='modal actions-modal actions'>
   <div class='modal-background actions'></div>
   <div class='modal-content has-background-white'>
+    <a href='' class='is-hidden goto-post'>
+      <button class='button is-medium is-fullwidth'>Go to Post</button></a>
     <button class='button delete-post is-medium is-fullwidth is-hidden'>Delete
       Post</button>
     <button class='button follow-action is-medium is-fullwidth'>
       {{#if follower}}Unfollow{{else}}Follow{{/if}}</button>
     <button class='button cancel actions is-medium is-fullwidth'>Cancel</button>
   </div>
+  {{! <button class='modal-close is-large' aria-label='close'></button> }}
 </div>

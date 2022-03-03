@@ -4,6 +4,7 @@ const actionsModal = document.querySelector('.actions-modal.actions');
 const followBtn = document.querySelector('.follow-action');
 const modalBg = document.querySelector('.modal-background.actions');
 const deletePost = document.querySelector('.delete-post');
+const gotoPost = document.querySelector('.goto-post');
 
 // This adds an event listener on h3 headers to fetch repo data
 
@@ -18,7 +19,8 @@ document.addEventListener('DOMContentLoaded', function () {
         const id = element.getAttribute('user-id');
         const postId =
           element.parentElement.parentElement.parentElement.parentElement.id;
-
+        gotoPost.classList.remove('is-hidden');
+        gotoPost.href = `/posts/${postId}`;
         console.log(postId, 'post-id');
         console.log(id, 'user-id');
         const getData = await getRequest(`/api/follow/${id}`);

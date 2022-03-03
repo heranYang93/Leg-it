@@ -20,7 +20,7 @@ router.get('/', async (req, res) => {
       order: [['updatedAt', 'DESC']],
     });
     const postsData = dbpostsData.map((el) => el.get({ plain: true }));
-    console.log(postsData);
+    // console.log(postsData);
     res.render('posts', {
       title: 'Lego Posts',
       postsData: postsData,
@@ -86,6 +86,7 @@ router.get('/posts/:id', async (req, res) => {
       loggedOut: !req.session.loggedIn,
       comments: postsData.comments,
       user: req.session.user.username,
+      singlePost: true,
     });
   } catch (error) {
     res.status(404).render('error');
@@ -141,7 +142,7 @@ router.get('/feed', async (req, res) => {
             .length > 0)
     );
     postsData = postsData.filter((e) => e.follower === true);
-    console.log(postsData);
+    // console.log(postsData);
     res.render('feed', {
       title: 'Lego Posts',
       postsData: postsData,
@@ -203,7 +204,7 @@ router.get('/favourites', async (req, res) => {
             .length > 0)
     );
     const filteredData = postsData.filter((e) => e.like === true);
-    console.log(filteredData);
+    // console.log(filteredData);
     res.render('feed', {
       title: 'Lego Posts',
       postsData: filteredData,
@@ -230,6 +231,68 @@ router.get('/login', async (req, res) => {
       login: true,
     });
   } catch (error) {
+    res.status(500).json({ msg: error });
+  }
+});
+
+router.get('/community/:id', async (req, res) => {
+  if (!req.session.loggedIn) {
+    return res.redirect('/login');
+  }
+  try {
+    const findUser = await User.findByPk(req.params.id, {
+      attributes: { exclude: ['password', 'email'] },
+      include: [
+        {
+          model: Post,
+          order: [['updatedAt', 'DESC']],
+          include: [{ model: Like }],
+        },
+        {
+          model: Follower,
+        },
+        {
+          model: Comment,
+        },
+      ],
+    });
+
+    userData = findUser.get({ plain: true });
+    const postArr = userData.posts;
+    const postAmount = postArr.length;
+    let likeReceived = 0;
+    postArr.forEach((singlePost) => {
+      likeReceived += singlePost.likes.length;
+    });
+
+    const followerArr = userData.followers;
+    const followerAmount = followerArr.length;
+    const commentAmount = userData.comments.length;
+
+    let follower = false;
+    followerArr.forEach((followData) => {
+      if (followData.user_id == userData.id) {
+        follower = true;
+      }
+    });
+
+    res.render('userPage', {
+      userId: userData.id,
+      name: userData.username,
+      follower,
+      postArr,
+      likeReceived,
+      postAmount,
+      followerArr,
+      followerAmount,
+      commentAmount,
+      signedIn: req.session.loggedIn,
+      loggedOut: !req.session.loggedIn,
+      user: req.session.user.username,
+    });
+    // res.json(userData);
+  } catch (error) {
+    res.send(error.message);
     res.status(500).json({ msg: error });
   }
 });

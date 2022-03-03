@@ -1,0 +1,67 @@
+{{> navbar}}
+<section class="hero is-black">
+  <div class="hero-body">
+    <nav class="level">
+      <div class="level-item has-text-centered">
+        <div>
+          <figure class="image is-480x480">
+            <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
+          </figure>
+          <br>
+          <p class="subtitle is-4">{{name}}</p>
+          <br>
+
+        {{#if follower}}
+          <button class='button is-info is-light username-within' user-id='{{userId}}'>Following</button>
+        {{else}}
+          <button class='button is-primary username-within' user-id='{{userId}}'>+ <span
+              class='ml-1 has-text-link is-clickable'>
+            Follow
+            </button>
+        {{/if}}
+
+        </div>
+      </div>
+    </nav>
+    <br>
+    <nav class="level">
+      <div class="level-item has-text-centered">
+        <div>
+          <p class="heading">POSTS</p>
+          <p class="title">{{postAmount}}</p>
+        </div>
+      </div>
+      <div class="level-item has-text-centered">
+        <div>
+          <p class="heading">COMMENTS</p>
+          <p class="title">{{commentAmount}}</p>
+        </div>
+      </div>
+      <div class="level-item has-text-centered">
+        <div>
+          <p class="heading">LIKED</p>
+          <p class="title">{{likeReceived}}</p>
+        </div>
+      </div>
+      <div class="level-item has-text-centered">
+        <div>
+          <p class="heading">FOLLOWED BY</p>
+          <p class="title">{{followerAmount}}</p>
+        </div>
+      </div>
+      
+</nav>
+  </div>
+</section>
+  
+<section class="bd-index-section">
+    <div class="container is-centered">
+        <div class="columns is-multiline is-tablet is-centered">
+            {{#each postArr}}
+            {{> postCard}}
+            {{/each}}  
+        </div>
+    </div>
+</section>
+
+<script type='module' src='/js/followAll.js'></script>
