@@ -106,19 +106,7 @@ a {
   flex-wrap: wrap;
 }
 
-.tagArea_manage {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-
 #tagArea > * {
-  margin-top: 1%;
-  margin-bottom: 0%;
-  margin-right: 2%;
-}
-
-.tagArea_manage > * {
   margin-top: 1%;
   margin-bottom: 0%;
   margin-right: 2%;
@@ -157,11 +145,11 @@ a {
 }
 
 .NavButton:hover {
- color: black;
- transform: scale(1.2);
+  color: black;
+  transform: scale(1.2);
 }
 
-.navbar{
+.navbar {
   position: fixed;
   width: 100vw;
 }
@@ -178,12 +166,10 @@ a {
   min-height: 14%;
 }
 
-
-
-.splashHeaderOne{
-font-size: 4.5rem;
-font-weight: bolder;
-text-transform: uppercase;
+.splashHeaderOne {
+  font-size: 4.5rem;
+  font-weight: bolder;
+  text-transform: uppercase;
 }
 
 .splashHeaderTwo {
@@ -199,16 +185,15 @@ text-transform: uppercase;
   font-size: 1rem;
   border: none;
   border-radius: 40px;
-text-transform: uppercase;
+  text-transform: uppercase;
 
-font-weight: bolder;
-
+  font-weight: bolder;
 }
 
 .splashButtons:hover {
   cursor: pointer;
-background-color: darkgrey;
-color: white;
+  background-color: darkgrey;
+  color: white;
   transform: scale(1.1);
 }
 
@@ -217,18 +202,16 @@ color: white;
 }
 
 @media only screen and (max-width: 670px) {
-  .splashHeaderOne{
+  .splashHeaderOne {
     font-size: 230%;
-    
   }
-  .splashHeaderTwo{
+  .splashHeaderTwo {
     font-size: 200%;
-
   }
-  .splashButtons{
+  .splashButtons {
     margin-bottom: 30px;
   }
-  .splashHolder{
+  .splashHolder {
     display: none;
   }
 }
@@ -236,21 +219,18 @@ color: white;
 .splashContainer {
   display: none;
 }
-
 
 @media only screen and (max-width: 670px) {
-  .splashHeaderOne{
+  .splashHeaderOne {
     font-size: 230%;
-    
   }
-  .splashHeaderTwo{
+  .splashHeaderTwo {
     font-size: 200%;
-
   }
-  .splashButtons{
+  .splashButtons {
     margin-bottom: 30px;
   }
-  .splashHolder{
+  .splashHolder {
     display: none;
   }
 }
@@ -259,41 +239,33 @@ color: white;
   display: none;
 }
 
-
 @media only screen and (max-width: 830px) {
-.splashVidHolder {
- display: none;
+  .splashVidHolder {
+    display: none;
+  }
 }
-}
-
-
 
 @media only screen and (max-width: 450px) {
-  .navbar-item{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+  .navbar-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
   .NavButton {
     font-size: 1.5rem;
   }
-
 }
 @media only screen and (max-width: 390px) {
-
   .NavButton {
     flex-shrink: 1;
-    
   }
-
 }
-
 
 @media only screen and (max-width: 1000px) {
-.logoNav {
- display: none;
-}
+  .logoNav {
+    display: none;
+  }
 }
 
 .comment-avatar {
@@ -344,8 +316,13 @@ img {
   border: 0;
 }
 
+#legoSurprisedFace {
+  margin-top: 5%;
+  margin-bottom: 5%;
+  width: 20%;
+}
 
-.postContainer{
+.postContainer {
   display: flex;
   align-items: center;
   outline: red 2px solid;
