@@ -87,13 +87,6 @@ a {
   object-fit: cover;
 }
 
-.column {
-  margin: 0.25rem;
-  max-width: 30%;
-  padding: 0;
-  display: inline-table;
-}
-
 .caption {
   color: white;
 }

@@ -88,7 +88,7 @@ router.get('/posts/:id', async (req, res) => {
       user: req.session.user.username,
     });
   } catch (error) {
-    res.status(500).json({ msg: error });
+    res.status(404).render('error');
   }
 });
 router.get('/feed', async (req, res) => {
@@ -210,14 +210,18 @@ router.get('/favourites', async (req, res) => {
 });
 router.get('/register', async (req, res) => {
   try {
-    res.render('register');
+    res.render('register', {
+      register: true,
+    });
   } catch (error) {
     res.status(500).json({ msg: error });
   }
 });
 router.get('/login', async (req, res) => {
   try {
-    res.render('login');
+    res.render('login', {
+      login: true,
+    });
   } catch (error) {
     res.status(500).json({ msg: error });
   }
@@ -276,6 +280,10 @@ router.get('/community/:id', async (req, res) => {
     res.send(error.message);
     res.status(500).json({ msg: error });
   }
+});
+
+router.get('/*', (req, res) => {
+  res.redirect('/');
 });
 
 module.exports = router;
