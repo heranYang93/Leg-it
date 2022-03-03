@@ -157,3 +157,8 @@ img {
   overflow-y: auto;
   max-height: 430px;
 }
+
+.modal-close {
+  right: 8px;
+  top: 61px;
+}
