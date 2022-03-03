@@ -98,9 +98,6 @@ a {
 }
 
 #tagArea {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  padding: 10px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -141,4 +138,22 @@ a {
 
 .post_time {
   color: hsl(171, 100%, 41%);
+}
+
+.comment-avatar {
+  display: block;
+  height: 32px;
+  width: 32px;
+  min-width: 32px;
+  border-radius: 50%;
+  margin-right: 0.75rem;
+}
+
+img {
+  max-height: 730px;
+}
+
+.comment-container {
+  overflow-y: auto;
+  max-height: 430px;
 }

@@ -1,81 +1,134 @@
-<div class="card p-3">
- <form class="commentForm">
- <div class="field is-horizontal">
-    <div class="field-label is-normal">
-      <label class="label">Comment</label>
-    </div>
-    <div class="field-body">
-      <div class="field">
-        <div class="control">
-          <textarea
-            class="textarea"
-            placeholder="Write your comment"
-            id="comment_text"
-          ></textarea>
-        </div>
-      </div>
-    </div>
-  </div>
 
-    <div class="field is-horizontal">
-    <div class="field-label">
-      <!-- Left empty for spacing -->
+<div class='card' id='{{id}}'>
+  <div class='is-flex is-justify-content-space-between is-hidden-mobile'>
+    <div class='level-left'>
+      <h2 class='card-header-title username level-left' user-id='{{user.id}}'>
+        {{user.username}}
+        {{#if follower}}
+          <span class='ml-1 username-within' user-id='{{user.id}}'>• Following</span>
+        {{else}}
+          <span class='ml-1 username-within' user-id='{{user.id}}'>•<span
+              class='ml-1 has-text-link is-clickable'
+            >Follow</span></span>
+        {{/if}}
+      </h2>
     </div>
-    <div class="field-body">
-      <div class="field">
-        <div class="control">
-          <button
-            class="button is-primary"
-            type="submit"
-            id="submitBtn"
-           
-            value="{{id}}"
-          >
-            Submit Comment
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  </form>
-  </div>
-  <script type="module" src="/js/postComment.js"></script>
-<div id="commentContainer">
-{{#each comments}}
-  <div id="commentCard{{id}}" class='card is-flex is-align-items-center mb-4'
-  style="max-height: 100px">
-  {{!-- max height will break if comment is too big --}}
-        <img
-        class="mr-2"
-        style="max-width: 2rem; border-radius: 100%;"
-          src=' https://cdn.ebaumsworld.com/2020/01/13/021054/86172703/lego-star-wars-profile-4.jpg'
-        />
-        <div class="">
+    <div class='level-right'>
+      <h2 class='card-header-title level-right'>
+        <div class='modal-trigger actions' user-id='{{user.id}}'>
+          <span class='icon is-small'>
+            <i class='fas fa-ellipsis-h' aria-hidden='true'></i>
+          </span>
 
-        
-        <p>
-          <span
-            class='has-text-primary is-size-9 is-uppercase has-text-weight-bold'
-          >
-          {{user.username}}: </span>
-          {{comment_text}}
-          </p> 
-          
-            {{#if signedIn}}
-          <button class="delete-post-btn button is-info is-light is-small" data-id={{id}}>DEL</button>
-            {{/if}}
+        </div>
+      </h2>
+    </div>
+  </div>
+  <div id='commentContainer' class="comment-container is-hidden-mobile">
+    {{#each comments}}
+      <div
+        id='commentCard{{id}}'
+        class='is-flex is-align-items-center mb-4'
+        style='max-height: 100px'
+      >
+        {{! max height will break if comment is too big }}
+        <img class="comment-avatar ml-2" src="https://cdn.ebaumsworld.com/2020/01/13/021054/86172703/lego-star-wars-profile-4.jpg" data-demo-src="assets/img/avatars/nelly.png" data-user-popover="9" alt="" data-target="webuiPopover1">
+        <div class=''>
+
+          <p>
+            <span
+              class='has-text-primary is-size-9 is-uppercase has-text-weight-bold'
+            >
+              {{user.username}}:
+            </span>
+            {{comment_text}}
+          </p>
+
+          {{#if signedIn}}
+            <button
+              class='delete-post-btn button is-info is-light is-small'
+              data-id={{id}}
+            >DEL</button>
+          {{/if}}
 
           {{!-- <button class="update-post-btn button is-info is-light  is-small" comment-id={{id}}>EDIT</button> --}}
-          </div>
-         
-            
-  </div>
+        </div>
 
-{{/each}}
-  
+      </div>
+
+    {{/each}}
+
+  </div>
+    {{!-- hy >>> --}}
+    <section class ='level-left m-1 is-hidden-mobile' id='tagArea'>
+        {{#each tags}}
+        {{> singleTag}}
+        {{/each}}  
+    </section>
+{{!-- <<< hy --}}
+  <div class='level is-mobile m-1 is-hidden-mobile'>
+
+    <div class='level-left'>
+      <span
+        class='card-header-title level-item'
+        role='img'
+        aria-label='heart emoji'
+      >
+        {{#if like}}
+          <strong id='like-post' post-id={{id}} class='like-post'><i
+              class='fas fa-heart'
+            ></i><span class='likes-counter' data-value={{likes.length}}>
+              {{likes.length}}
+              likes</span></strong>
+        {{else}}
+          <strong id='like-post' post-id={{id}} class='like-post'><i
+              class='far fa-heart'
+            ></i><span class='likes-counter' data-value={{likes.length}}>
+              {{likes.length}}
+              likes</span></strong>
+        {{/if}}
+      </span>
+    </div>
+  </div>
+  <form class='commentForm'>
+    <div class='field is-horizontal'>
+      <div class='field-body'>
+        <div class='field'>
+          <div class='control'>
+            <textarea
+              class='textarea is-small'
+              placeholder='Write your comment'
+              id='comment_text'
+            ></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class='field is-horizontal'>
+      <div class='field-body'>
+        <div class='field'>
+          <div class='control'>
+            <button
+              class='button is-primary'
+              type='submit'
+              id='submitBtn'
+              value='{{id}}'
+            >
+              Submit Comment
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </form>
 </div>
-<script type="module" src="/js/postComment.js"></script>
-<script type="module" src="/js/deleteComment.js"></script>
-<script type="module" src="/js/updateComment.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type='module' src='/js/postComment.js'></script>
+
+<script type='module' src='/js/postComment.js'></script>
+<script type='module' src='/js/deleteComment.js'></script>
+<script type='module' src='/js/updateComment.js'></script>
+<script
+  src='https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js'
+></script>
