@@ -28,7 +28,7 @@
       <img src={{post_image}} alt='{{post_title}}' />
     </figure>
   </div>
-  <div class='level is-mobile' style='marginBottom: 0'>
+  <div class='level is-mobile' style='margin-bottom:0;'>
 
     <div class='level-left'>
       <span
@@ -51,10 +51,6 @@
         {{/if}}
       </span>
       <div class="has-text-centered">
-      <p class="p-1 is-size-7">
-        {{#post_time createdAt}}
-        {{/post_time}}
-      </p>
     </div>
     </div>
   </div>
@@ -69,6 +65,10 @@
     <div class="pl-4 pr-4 pb-3">
 
     {{>commentFeed}}
+      <p class="p-1 is-size-7">
+        {{#post_time createdAt}}
+        {{/post_time}}
+      </p>
     </div>
 {{!-- <<< hy --}}
 </article>

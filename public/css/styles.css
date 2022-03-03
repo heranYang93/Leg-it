@@ -1,4 +1,7 @@
 /* HOMEPAGE IMAGE HOVER ANIMATION  */
+:root {
+  --lego-yellow: #fdc800;
+}
 
 body {
   background-color: rgba(250, 250, 250);
@@ -142,3 +145,118 @@ a {
 .post_time {
   color: hsl(171, 100%, 41%);
 }
+
+.NavButton {
+  border: none;
+}
+
+.NavButton:hover {
+ color: black;
+ transform: scale(1.2);
+}
+
+.navbar{
+  position: fixed;
+  width: 100vw;
+}
+
+.yellowBG {
+  background-color: var(--lego-yellow);
+}
+
+.navHolder {
+  min-height: 12%;
+}
+.splashHeaderOne{
+font-size: 4.5rem;
+font-weight: bolder;
+text-transform: uppercase;
+}
+
+.splashHeaderTwo {
+  font-size: 3rem;
+  font-weight: bolder;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+
+.splashButtons {
+  margin-left: 20px;
+  padding: 1rem 2rem 1rem 2rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 40px;
+text-transform: uppercase;
+
+font-weight: bolder;
+
+}
+
+.splashButtons:hover {
+  cursor: pointer;
+background-color: darkgrey;
+color: white;
+  transform: scale(1.1);
+}
+
+.videoIntro {
+  position: fixed;
+}
+
+@media only screen and (max-width: 670px) {
+  .splashHeaderOne{
+    font-size: 230%;
+    
+  }
+  .splashHeaderTwo{
+    font-size: 200%;
+
+  }
+  .splashButtons{
+    margin-bottom: 30px;
+  }
+  .splashHolder{
+    display: none;
+  }
+}
+
+.splashContainer {
+  display: none;
+}
+
+
+@media only screen and (max-width: 670px) {
+  .splashHeaderOne{
+    font-size: 230%;
+    
+  }
+  .splashHeaderTwo{
+    font-size: 200%;
+
+  }
+  .splashButtons{
+    margin-bottom: 30px;
+  }
+  .splashHolder{
+    display: none;
+  }
+}
+
+.splashContainer {
+  display: none;
+}
+
+
+@media only screen and (max-width: 830px) {
+.splashVidHolder {
+ display: none;
+}
+}
+
+
+@media only screen and (max-width: 1000px) {
+.logoNav {
+ display: none;
+}
+}
+
