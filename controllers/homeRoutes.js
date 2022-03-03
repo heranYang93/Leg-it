@@ -222,4 +222,60 @@ router.get('/login', async (req, res) => {
     res.status(500).json({ msg: error });
   }
 });
+
+router.get('/community/:id', async (req, res) => {
+  if (!req.session.loggedIn) {
+    return res.redirect('/login');
+  }
+  try {
+    const findUser = await User.findByPk(req.params.id, {
+      attributes: { exclude: ['password', 'email'] },
+      include: [
+        {
+          model: Post,
+          order: [['updatedAt', 'DESC']],
+          include: [{ model: Like }],
+        },
+        {
+          model: Follower,
+        },
+        {
+          model: Comment,
+        },
+      ],
+    });
+
+    userData = findUser.get({ plain: true });
+    console.log(userData);
+    const userName = userData.username;
+    const postArr = userData.posts;
+    const postAmount = postArr.length;
+    let likeReceived = 0;
+    postArr.forEach((singlePost) => {
+      likeReceived += singlePost.likes.length;
+    });
+
+    const followerArr = userData.followers;
+    const followerAmount = followerArr.length;
+    const commentAmount = userData.comments.length;
+
+    res.render('userPage', {
+      userName,
+      postArr,
+      likeReceived,
+      postAmount,
+      followerArr,
+      followerAmount,
+      commentAmount,
+      signedIn: req.session.loggedIn,
+      loggedOut: !req.session.loggedIn,
+      user: req.session.user.username,
+    });
+    // res.json(userData);
+  } catch (error) {
+    res.send(error.message);
+    res.status(500).json({ msg: error });
+  }
+});
+
 module.exports = router;
