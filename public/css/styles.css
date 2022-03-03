@@ -148,6 +148,29 @@ a {
   color: hsl(171, 100%, 41%);
 }
 
+.comment-avatar {
+  display: block;
+  height: 32px;
+  width: 32px;
+  min-width: 32px;
+  border-radius: 50%;
+  margin-right: 0.75rem;
+}
+
+img {
+  max-height: 730px;
+}
+
+.comment-container {
+  overflow-y: auto;
+  max-height: 430px;
+}
+
+.modal-close {
+  right: 8px;
+  top: 61px;
+}
+
 #personalPagePost {
   margin-left: 2%;
   margin-right: 2%;

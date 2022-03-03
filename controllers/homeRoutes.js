@@ -86,6 +86,7 @@ router.get('/posts/:id', async (req, res) => {
       loggedOut: !req.session.loggedIn,
       comments: postsData.comments,
       user: req.session.user.username,
+      singlePost: true,
     });
   } catch (error) {
     res.status(404).render('error');

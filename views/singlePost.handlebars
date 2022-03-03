@@ -1,9 +1,21 @@
 {{> navbar}}
 {{> uploadModal}}
-
+  {{!-- <div class='modal-background'>
+  </div> --}}
+  <section>
+ <a href="/feed" class="is-white m-1"> <button class="modal-close is-large" aria-label="close"></button></a>
+ </section>
 {{#each postsData}}
+<section class="section">
+<div class="columns is-centered is-gapless">
+    <div class="column is-7 is-gapless">
 {{> imageCard}}
+</div>
+ <div class="column is-5 is-gapless">
 {{> commentCard}}
+</div>
+</div>
+</section>
 {{> modal}}
 {{/each}}
 
