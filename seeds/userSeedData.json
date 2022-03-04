@@ -1,32 +1,38 @@
 [
-    {
-        "username": "LegoSpaceMan",
-        "email": "user1@gmail.com",
-        "password": "Pzcw6x9@x@ErS8P"
-    },
-    {
-        "username": "BigFred33",
-        "email": "user2@gmail.com",
-        "password": "Pzcw6x9@x@ErS8P"
-    },
-    {
-        "username": "IluvLego",
-        "email": "user3@gmail.com",
-        "password": "Pzcw6x9@x@ErS8P"
-    },
-    {
-        "username": "ThanosWasRight",
-        "email": "user4@gmail.com",
-        "password": "Pzcw6x9@x@ErS8P"
-    },
-    {
-        "username": "BatmanFan22",
-        "email": "user5@gmail.com",
-        "password": "Pzcw6x9@x@ErS8P"
-    },
-    {
-        "username": "LegoSkywalker",
-        "email": "user6@gmail.com",
-        "password": "Pzcw6x9@x@ErS8P"
-    }
+  {
+    "username": "LegoSpaceMan",
+    "email": "user1@gmail.com",
+    "password": "Pzcw6x9@x@ErS8P",
+    "image": "https://www.pexels.com/photo/man-wearing-black-suit-jacket-and-pants-937481/"
+  },
+  {
+    "username": "BigFred33",
+    "email": "user2@gmail.com",
+    "password": "Pzcw6x9@x@ErS8P",
+    "image": "https://www.pexels.com/photo/man-on-gray-shirt-portrait-91227/"
+  },
+  {
+    "username": "IluvLego",
+    "email": "user3@gmail.com",
+    "password": "Pzcw6x9@x@ErS8P",
+    "image": "https://www.pexels.com/photo/woman-holding-fireflies-573299/"
+  },
+  {
+    "username": "ThanosWasRight",
+    "email": "user4@gmail.com",
+    "password": "Pzcw6x9@x@ErS8P",
+    "image": "https://www.pexels.com/photo/man-in-red-polo-shirt-3777952/"
+  },
+  {
+    "username": "BatmanFan22",
+    "email": "user5@gmail.com",
+    "password": "Pzcw6x9@x@ErS8P",
+    "image": "https://www.pexels.com/photo/man-standing-near-building-white-black-turtleneck-shirt-874158/"
+  },
+  {
+    "username": "LegoSkywalker",
+    "email": "user6@gmail.com",
+    "password": "Pzcw6x9@x@ErS8P",
+    "image": "https://www.pexels.com/photo/photo-of-woman-wearing-blue-zip-up-jacket-1090387/"
+  }
 ]
