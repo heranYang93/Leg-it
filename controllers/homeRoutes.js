@@ -215,6 +215,21 @@ router.get('/favourites', async (req, res) => {
       ],
       order: [['updatedAt', 'DESC']],
     });
+    const dbfollowersData = await Follower.findAll({
+      raw: true,
+      where: {
+        user_id: req.session.user.id,
+      },
+    });
+
+    const following = dbfollowersData.map((e) => e.follower_id);
+    const usersData = await User.findAll({
+      raw: true,
+      attributes: {
+        exclude: ['password', 'email'],
+      },
+    });
+    const suggestedUsers = usersData.filter((e) => !following.includes(e.id));
     const postsData = dbpostsData.map((el) => el.get({ plain: true }));
     postsData.map(
       (e) =>
@@ -235,6 +250,7 @@ router.get('/favourites', async (req, res) => {
       signedIn: req.session.loggedIn,
       loggedOut: !req.session.loggedIn,
       user: req.session.user.username,
+      suggestedUsers: suggestedUsers,
     });
   } catch (error) {
     res.status(500).json({ msg: error });
