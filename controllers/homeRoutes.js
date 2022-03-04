@@ -278,6 +278,7 @@ router.get('/community/:id', async (req, res) => {
 
     res.render('userPage', {
       userId: userData.id,
+      userImg: userData.image,
       name: userData.username,
       follower,
       postArr,
