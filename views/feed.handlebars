@@ -11,8 +11,11 @@
 </div>
 <div class="column is-3">
 <div class="container is-centered mt-5 ml-1">
-    <div class="has-text-primary is-size-6">Suggestions for you:
-</div>  
+            {{#if suggestedUsers}}
+    <div class="has-text-primary is-size-6">Suggestions for you:</div>  
+{{else}}
+<div class="has-text-primary is-size-6 mr-3">⚡ Wow, your feed is up to date and following all content creators.</div>
+        {{/if}}
 {{#limitEach suggestedUsers 5}}
 {{> suggestionsCard}}
 {{/limitEach}}
