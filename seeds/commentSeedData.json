@@ -1,37 +1,149 @@
 [
     {
-        "comment_text": "This is a comment",
+        "comment_text": "These Rainbow Legos look so cool!",
         "post_id": "1",
+        "user_id": "1"
+    },
+    {
+        "comment_text": "Batman and Superman are my favourite ",
+        "post_id": "2",
+        "user_id": "2"
+    },
+    {
+        "comment_text": "Wonderwoman is underrated!",
+        "post_id": "3",
+        "user_id": "3"
+    },
+    {
+        "comment_text": "The best version of the bat-mobile",
+        "post_id": "4",
+        "user_id": "4"
+    },
+    {
+        "comment_text": "The boy wonder himself",
+        "post_id": "5",
         "user_id": "5"
     },
     {
-        "comment_text": "This is a comment",
+        "comment_text": "I need this set",
+        "post_id": "6",
+        "user_id": "1"
+    },
+    {
+        "comment_text": "This minecraft set, how is it so cool?",
+        "post_id": "7",
+        "user_id": "2"
+    },
+    {
+        "comment_text": "More minecraft posts for the guys",
+        "post_id": "8",
+        "user_id": "3"
+    },
+    {
+        "comment_text": "Me and my dad",
+        "post_id": "9",
+        "user_id": "4"
+    },
+    {
+        "comment_text": "I've read all the books and this set is just as good!",
+        "post_id": "10",
+        "user_id": "5"
+    },
+    {
+        "comment_text": "Thanos was right!",
+        "post_id": "11",
+        "user_id": "1"
+    },
+    {
+        "comment_text": "mario? no! SUPER MARIO!",
+        "post_id": "12",
+        "user_id": "2"
+    },
+    {
+        "comment_text": "Get out of my swamp!",
+        "post_id": "13",
+        "user_id": "3"
+    },
+    {
+        "comment_text": "Lego movie was so good when it came out",
+        "post_id": "14",
+        "user_id": "4"
+    },
+    {
+        "comment_text": "I liked this artwork I made",
+        "post_id": "15",
+        "user_id": "5"
+    },
+    {
+        "comment_text": "an apple a day keeps the doctor away",
+        "post_id": "16",
+        "user_id": "1"
+    },
+    {
+        "comment_text": "Use the force!",
+        "post_id": "17",
+        "user_id": "2"
+    },
+    {
+        "comment_text": "the Millennium Falcon made the Kessel Run in less than 12 parsecs",
+        "post_id": "18",
+        "user_id": "3"
+    },
+    {
+        "comment_text": "WHERE CAN I GET THIS STARFIGHTER!?!?",
+        "post_id": "19",
+        "user_id": "4"
+    },
+    {
+        "comment_text": "I miss empire strikes back, this set is so cool",
+        "post_id": "20",
+        "user_id": "5"
+    },
+
+    {
+        "comment_text": "I love this, so colourful!",
+        "post_id": "1",
+        "user_id": "2"
+    },
+    {
+        "comment_text": "this is great man!",
+        "post_id": "1",
+        "user_id": "4"
+    },
+
+    {
+        "comment_text": "The dynamic duo!",
+        "post_id": "2",
+        "user_id": "1"
+    },
+    {
+        "comment_text": "the best comic characters",
         "post_id": "2",
         "user_id": "5"
     },
     {
-        "comment_text": "This is a comment",
-        "post_id": "3",
-        "user_id": "4"
+        "comment_text": "this is very cool",
+        "post_id": "2",
+        "user_id": "1"
     },
     {
-        "comment_text": "This is a comment",
-        "post_id": "4",
+        "comment_text": "Are these a set?",
+        "post_id": "2",
         "user_id": "3"
     },
     {
-        "comment_text": "This is a comment",
-        "post_id": "5",
-        "user_id": "2"
+        "comment_text": "the best comic characters",
+        "post_id": "2",
+        "user_id": "5"
     },
     {
-        "comment_text": "This is a comment",
-        "post_id": "5",
-        "user_id": "2"
-    },
-    {
-        "comment_text": "This is a comment",
-        "post_id": "6",
+        "comment_text": "this is very cool",
+        "post_id": "2",
         "user_id": "1"
+    },
+    {
+        "comment_text": "Are these a set?",
+        "post_id": "2",
+        "user_id": "3"
     }
 ]
