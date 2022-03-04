@@ -262,7 +262,7 @@ a {
   }
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1023px) {
   .logoNav {
     display: none;
   }
@@ -326,4 +326,9 @@ img {
   display: flex;
   align-items: center;
   outline: red 2px solid;
+}
+
+
+.userStatsContainer{
+  width: 72%;
 }
