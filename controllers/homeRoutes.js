@@ -311,7 +311,7 @@ router.get('/community/:id', async (req, res) => {
 
     let follower = false;
     followerArr.forEach((followData) => {
-      if (followData.user_id == userData.id) {
+      if (followData.user_id === req.session.user.id) {
         follower = true;
       }
     });
