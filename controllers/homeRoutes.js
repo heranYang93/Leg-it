@@ -296,6 +296,14 @@ router.get('/community/:id', async (req, res) => {
   }
 });
 
+router.get('/profile', async (req, res) => {
+  try {
+    res.render('profile');
+  } catch (error) {
+    res.status(500).json({ msg: error });
+  }
+});
+
 router.get('/*', (req, res) => {
   res.redirect('/');
 });

@@ -106,19 +106,7 @@ a {
   flex-wrap: wrap;
 }
 
-.tagArea_manage {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-
 #tagArea > * {
-  margin-top: 1%;
-  margin-bottom: 0%;
-  margin-right: 2%;
-}
-
-.tagArea_manage > * {
   margin-top: 1%;
   margin-bottom: 0%;
   margin-right: 2%;

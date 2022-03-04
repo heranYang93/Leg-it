@@ -31,6 +31,10 @@ User.init(
         len: [6],
       },
     },
+    image: {
+      type: DataTypes.STRING,
+      defaultValue: 'https://bulma.io/images/placeholders/128x128.png',
+    },
   },
   {
     hooks: {

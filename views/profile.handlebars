@@ -1,24 +1,33 @@
-<form action="/" method="POST" encType="multipart/form-data">
-	<h3>Upload Profile Photo</h3>
-	<input type="file" name="sampleFile" accept="image/*" />
-	<input type="submit" class="btn btn-primary">
-</form>
-
-<div class="card">
-	{{#each rows}}
-
-	{{#if this.profile_image}}
-	<img class="card__image" src="{{this.profile_image}}" alt="User Profile">
-	{{else}}
-	<img class="card__image" src="/img/default.jpg" alt="User Profile">
-	{{/if}}
-
-	<h1 class="card__title">{{this.name}}</h1>
-	<div class="card__job">{{this.job_title}}</div>
-	<p class="card__about">
-		{{this.description}}
-	</p>
-	<button type="button" class="btn btn-primary">View Profile</button>
-	{{/each}}
-
+<div class='profile actions-profile upload'>
+  <div class='profile-background upload'></div>
+  <div class='profile-card'>
+    <header class='profile-card-head'>
+      <p class='profile-card-title'>Update Profile</p>
+      <button class='delete' aria-label='close'></button>
+    </header>
+    <section class='profile-card-body'>
+      <div>
+        <h1 class='title'>Upload an Image</h1>
+        <input
+          id='inp-profile'
+          type='file'
+          name='image'
+          value=''
+          class='form-input'
+        />
+        <img
+          id='img'
+          src='https://bulma.io/images/placeholders/128x128.png'
+          height='200'
+          alt=''
+        />
+      </div>
+    </section>
+    <footer class='profile-card-foot'>
+      <button class='btn button btn-profile is-success'> Submit</button>
+      <a class='button is-danger cancel'>Cancel</a>
+    </footer>
+  </div>
 </div>
+
+<script type='module' src='/js/editProfile.js'></script>
