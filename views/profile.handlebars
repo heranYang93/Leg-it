@@ -1,33 +1,37 @@
-<div class='profile actions-profile upload'>
-  <div class='profile-background upload'></div>
-  <div class='profile-card'>
-    <header class='profile-card-head'>
-      <p class='profile-card-title'>Update Profile</p>
-      <button class='delete' aria-label='close'></button>
-    </header>
-    <section class='profile-card-body'>
-      <div>
-        <h1 class='title'>Upload an Image</h1>
-        <input
-          id='inp-profile'
-          type='file'
-          name='image'
-          value=''
-          class='form-input'
-        />
-        <img
-          id='img'
-          src='https://bulma.io/images/placeholders/128x128.png'
-          height='200'
-          alt=''
-        />
-      </div>
-    </section>
-    <footer class='profile-card-foot'>
-      <button class='btn button btn-profile is-success'> Submit</button>
-      <a class='button is-danger cancel'>Cancel</a>
-    </footer>
+{{>navbar}}
+<div class="navHolderFeed"> </div>
+<div class="profileContainer">
+  <div class='card p-4 actions-profile upload'>
+    <div class='profile-background upload'></div>
+    <div class='profile-card'>
+      <header class='profile-card-head is-flex is-align-items-center'>
+        <p class='profile-card-title mr-2'>Update Profile Picture</p>
+        <button class='delete' aria-label='close'></button>
+      </header>
+      <section class='profile-card-body'>
+        <div class="is-flex is-flex-direction-column">
+          <h1 class='title'>Upload an Image</h1>
+          <input
+            id='inp-profile'
+            type='file'
+            name='image'
+            value=''
+            class='form-input mb-2'
+          />
+          <img
+            id='img'
+            src='https://bulma.io/images/placeholders/128x128.png'
+            height='200'
+            alt=''
+            class=""
+          />
+        </div>
+      </section>
+      <footer class='profile-card-foot mt-2 is-flex is-justify-content-space-evenly	'>
+        <button class='btn button btn-profile is-success'> Submit</button>
+        <a class='button is-danger cancel'>Cancel</a>
+      </footer>
+    </div>
   </div>
 </div>
-
 <script type='module' src='/js/editProfile.js'></script>
