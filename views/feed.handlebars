@@ -14,7 +14,7 @@
             {{#if suggestedUsers}}
     <div class="has-text-primary is-size-6">Suggestions for you:</div>  
 {{else}}
-<div class="has-text-primary is-size-6 mr-3">⚡ Wow, your feed is up to date and following all content creators.</div>
+<strong class="has-text-primary is-size-6 mr-3">⚡ You are up to date.</strong>
         {{/if}}
 {{#limitEach suggestedUsers 5}}
 {{> suggestionsCard}}
