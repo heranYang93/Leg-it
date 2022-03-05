@@ -1,4 +1,5 @@
 {{> navbar}}
+<<<<<<< HEAD
   <div class="navHolder mb-5"> </div>
   <div class="columns p-5">
 <div class="column is-6">
@@ -25,34 +26,78 @@
                                     </div>
                                         <div class="columns">
                                             <div class="column is-6">
+=======
+<div class="navHolder"></div>
+
+<div id="uploadWrapper">
+>>>>>>> 0c31cfc (profile page styling)
 
 <div class='profile actions-profile upload'>
   <div class='profile-background upload'></div>
   <div class='profile-card'>
+<<<<<<< HEAD
     <section class='profile-card-body'>
       <div>
         <input
+=======
+    <br>
+    <section class='profile-card-body has-text-centered'>
+      <div class="is-flex is-flex-direction-column is-align-items-center is-justify-content-center">
+        <div class="m-5">
+          <h1 class='title is-3'>Select your profile picture</h1>
+        </div>
+        <div id='uploadInput' class="m-5">
+          <input
+>>>>>>> 0c31cfc (profile page styling)
           id='inp-profile'
           type='file'
           name='image'
           value=''
           class='form-input'
         />
-        <img
+        </div>
+        <figure class="m-5 image is-128x128">
+          <img
           id='img'
-          src='https://bulma.io/images/placeholders/128x128.png'
+          class="image is-rounded"
+          src={{singleUser.image}}
           height='200'
           alt=''
           class="image is-128x128 mt-5" 
           style="max-width: 128px"
         />
+        </figure>
       </div>
     </section>
+<<<<<<< HEAD
     <footer class='profile-card-foot'>
       <button class='btn button btn-profile is-rounded is-success mt-3'> Submit</button>
             <a href='/profile' class='btn button cancel is-rounded is-danger mt-3'> Cancel</a>
+=======
+
+    <br>
+
+    <footer class='profile-card-foot has-text-centered'>
+      <button class="btn button btn-profile is-success is-small">
+        <span class="icon is-small">
+          <i class="fas fa-check"></i>
+        </span>
+        <span>Save</span>
+      </button>
+      <button class="button is-danger cancel is-outlined is-small">
+        <span>Delete</span>
+        <span class="icon is-small">
+          <i class="fas fa-times"></i>
+        </span>
+      </button>
+
+      {{!-- <button class='btn button btn-profile is-success is-small'>Accept</button>
+      <button class='button is-danger cancel is-small'>reject</button> --}}
+>>>>>>> 0c31cfc (profile page styling)
     </footer>
+
   </div>
+
 </div>
                                             </div>
                                         </div>
@@ -62,4 +107,5 @@
     </div>
 
 
+</div>
 <script type='module' src='/js/editProfile.js'></script>
