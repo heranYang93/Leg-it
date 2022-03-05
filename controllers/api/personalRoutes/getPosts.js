@@ -32,10 +32,10 @@ router.get('/', async (req, res) => {
       const postsByUser = db_postsByUser.get({ plain: true });
 
       const postArr = postsByUser.posts;
-
       res.render('managePosts', {
         userName,
         postArr,
+        userImage: postsByUser.image,
         signedIn: req.session.loggedIn,
         loggedOut: !req.session.loggedIn,
       });
