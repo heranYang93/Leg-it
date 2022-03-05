@@ -1,33 +1,61 @@
+{{> navbar}}
+<div class="navHolder"></div>
+
+<div id="uploadWrapper">
+
 <div class='profile actions-profile upload'>
   <div class='profile-background upload'></div>
   <div class='profile-card'>
-    <header class='profile-card-head'>
-      <p class='profile-card-title'>Update Profile</p>
-      <button class='delete' aria-label='close'></button>
-    </header>
-    <section class='profile-card-body'>
-      <div>
-        <h1 class='title'>Upload an Image</h1>
-        <input
+    <br>
+    <section class='profile-card-body has-text-centered'>
+      <div class="is-flex is-flex-direction-column is-align-items-center is-justify-content-center">
+        <div class="m-5">
+          <h1 class='title is-3'>Select your profile picture</h1>
+        </div>
+        <div id='uploadInput' class="m-5">
+          <input
           id='inp-profile'
           type='file'
           name='image'
           value=''
           class='form-input'
         />
-        <img
+        </div>
+        <figure class="m-5 image is-128x128">
+          <img
           id='img'
-          src='https://bulma.io/images/placeholders/128x128.png'
+          class="image is-rounded"
+          src={{singleUser.image}}
           height='200'
           alt=''
         />
+        </figure>
       </div>
     </section>
-    <footer class='profile-card-foot'>
-      <button class='btn button btn-profile is-success'> Submit</button>
-      <a class='button is-danger cancel'>Cancel</a>
+
+    <br>
+
+    <footer class='profile-card-foot has-text-centered'>
+      <button class="btn button btn-profile is-success is-small">
+        <span class="icon is-small">
+          <i class="fas fa-check"></i>
+        </span>
+        <span>Save</span>
+      </button>
+      <button class="button is-danger cancel is-outlined is-small">
+        <span>Delete</span>
+        <span class="icon is-small">
+          <i class="fas fa-times"></i>
+        </span>
+      </button>
+
+      {{!-- <button class='btn button btn-profile is-success is-small'>Accept</button>
+      <button class='button is-danger cancel is-small'>reject</button> --}}
     </footer>
+
   </div>
+
 </div>
 
+</div>
 <script type='module' src='/js/editProfile.js'></script>

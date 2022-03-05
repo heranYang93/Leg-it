@@ -361,3 +361,15 @@ img {
     height: 55%;
   }
 }
+
+#inp-profile > * {
+  border: 0;
+}
+
+#uploadInput {
+  background-color: lightgray;
+}
+
+#uploadWrapper {
+  height: 50%;
+}
