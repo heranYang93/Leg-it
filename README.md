@@ -69,7 +69,13 @@ the sense of community on the app.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-### User Story
+### User Story (TBD)
+
+- I can send and delete (my) posts
+- I can comment on other posts and delete my own comments.
+- I can follow and unfollow other users.
+- I can like and unlike other users.
+- I can add and edit tags to my posts
 
 ### Built With
 
