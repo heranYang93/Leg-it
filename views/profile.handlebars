@@ -21,39 +21,16 @@
                                 <div class="flat-card profile-info-card is-auto mt-5">
                                     <!-- Title -->
                                     <div class="card-title mb-5">
-                                        <h3 class="has-text-weight-medium">Contact info</h3>
+                                        <h3 class="has-text-weight-medium">Upload or change your image</h3>
                                     </div>
-                                    <div class="card-body">
                                         <div class="columns">
                                             <div class="column is-6">
 
-                                                <div class="field info-block has-flex-label has-validation">
-                                                    <label class="label-text">
-                                                        <span>Update your email</span>
-                                                    </label>
-                                                    <div class="control">
-                                                        <input id="edit-email" type="email" class="input is-default fake-email-validation" value="{{userData.email}}">
-                                                    </div>
-                                                </div>
-                                                <button id="save-account-button" class="button is-link is-rounded raised opaque">
-                                                Save Changes
-                                            </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-    </div>
 <div class='profile actions-profile upload'>
   <div class='profile-background upload'></div>
   <div class='profile-card'>
-    <header class='profile-card-head'>
-      <p class='profile-card-title'>Update Profile</p>
-      <button class='delete' aria-label='close'></button>
-    </header>
     <section class='profile-card-body'>
       <div>
-        <h1 class='title'>Upload an Image</h1>
         <input
           id='inp-profile'
           type='file'
@@ -66,14 +43,23 @@
           src='https://bulma.io/images/placeholders/128x128.png'
           height='200'
           alt=''
+          class="image is-128x128 mt-5" 
+          style="max-width: 128px"
         />
       </div>
     </section>
     <footer class='profile-card-foot'>
-      <button class='btn button btn-profile is-success'> Submit</button>
-      <a class='button is-danger cancel'>Cancel</a>
+      <button class='btn button btn-profile is-rounded is-success mt-3'> Submit</button>
+            <a href='/profile' class='btn button cancel is-rounded is-danger mt-3'> Cancel</a>
     </footer>
   </div>
 </div>
+                                            </div>
+                                        </div>
+                              
+                                </div>
+                            </div>
+    </div>
+
 
 <script type='module' src='/js/editProfile.js'></script>
