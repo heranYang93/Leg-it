@@ -1,54 +1,19 @@
 {{> navbar}}
-<<<<<<< HEAD
-  <div class="navHolder mb-5"> </div>
-  <div class="columns p-5">
-<div class="column is-6">
-  <div class="container">
-    <div class="card m-5">
-              <div class="is-flex is-align-items-center is-flex-direction-column m-5">
-          <figure class="image is-128x128 m-5" style="max-width: 128px">
-            <img class="is-rounded" src="{{userData.image}}">
-          </figure>
-
-          <p class="has-text-centered has-text-weight-medium is-size-5">{{userData.username}}</p>
-          <p class="has-text-centered has-text-weight-medium is-size-6 mb-1 has-text-success">{{userData.email}}</p>
-
-        </div>
-      </div>
-    </div>
-    </div>
-<div class="column is-8">
-                                <!-- Edit contact Info -->
-                                <div class="flat-card profile-info-card is-auto mt-5">
-                                    <!-- Title -->
-                                    <div class="card-title mb-5">
-                                        <h3 class="has-text-weight-medium">Upload or change your image</h3>
-                                    </div>
-                                        <div class="columns">
-                                            <div class="column is-6">
-=======
 <div class="navHolder"></div>
 
 <div id="uploadWrapper">
->>>>>>> 0c31cfc (profile page styling)
 
 <div class='profile actions-profile upload'>
   <div class='profile-background upload'></div>
   <div class='profile-card'>
-<<<<<<< HEAD
-    <section class='profile-card-body'>
-      <div>
-        <input
-=======
     <br>
     <section class='profile-card-body has-text-centered'>
       <div class="is-flex is-flex-direction-column is-align-items-center is-justify-content-center">
         <div class="m-5">
-          <h1 class='title is-3'>Select your profile picture</h1>
+          <h1 class='subtitle is-3'>Upload a new profile picture</h1>
         </div>
         <div id='uploadInput' class="m-5">
           <input
->>>>>>> 0c31cfc (profile page styling)
           id='inp-profile'
           type='file'
           name='image'
@@ -56,15 +21,27 @@
           class='form-input'
         />
         </div>
+        <div class='profile-card-foot has-text-centered'>
+          <button class="btn button btn-profile is-success is-small">
+            <span class="icon is-small">
+              <i class="fas fa-check"></i>
+            </span>
+            <span>Save</span>
+          </button>
+          <button class="button is-danger cancel is-outlined is-small">
+            <span>Delete</span>
+            <span class="icon is-small">
+              <i class="fas fa-times"></i>
+            </span>
+          </button>
+    </div>
         <figure class="m-5 image is-128x128">
           <img
           id='img'
           class="image is-rounded"
-          src={{singleUser.image}}
+          src="{{singleUser.image}}"
           height='200'
-          alt=''
-          class="image is-128x128 mt-5" 
-          style="max-width: 128px"
+          alt='{{singleUser.username}}'
         />
         </figure>
       </div>
@@ -77,6 +54,7 @@
 
     <br>
 
+<<<<<<< HEAD
     <footer class='profile-card-foot has-text-centered'>
       <button class="btn button btn-profile is-success is-small">
         <span class="icon is-small">
@@ -96,6 +74,8 @@
 >>>>>>> 0c31cfc (profile page styling)
     </footer>
 
+=======
+>>>>>>> 98345a6 (profile image page)
   </div>
 
 </div>
