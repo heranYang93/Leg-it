@@ -1,3 +1,49 @@
+{{> navbar}}
+  <div class="navHolder mb-5"> </div>
+  <div class="columns p-5">
+<div class="column is-6">
+  <div class="container">
+    <div class="card m-5">
+              <div class="is-flex is-align-items-center is-flex-direction-column m-5">
+          <figure class="image is-128x128 m-5" style="max-width: 128px">
+            <img class="is-rounded" src="{{userData.image}}">
+          </figure>
+
+          <p class="has-text-centered has-text-weight-medium is-size-5">{{userData.username}}</p>
+          <p class="has-text-centered has-text-weight-medium is-size-6 mb-1 has-text-success">{{userData.email}}</p>
+
+        </div>
+      </div>
+    </div>
+    </div>
+<div class="column is-8">
+                                <!-- Edit contact Info -->
+                                <div class="flat-card profile-info-card is-auto mt-5">
+                                    <!-- Title -->
+                                    <div class="card-title mb-5">
+                                        <h3 class="has-text-weight-medium">Contact info</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="columns">
+                                            <div class="column is-6">
+
+                                                <div class="field info-block has-flex-label has-validation">
+                                                    <label class="label-text">
+                                                        <span>Update your email</span>
+                                                    </label>
+                                                    <div class="control">
+                                                        <input id="edit-email" type="email" class="input is-default fake-email-validation" value="{{userData.email}}">
+                                                    </div>
+                                                </div>
+                                                <button id="save-account-button" class="button is-link is-rounded raised opaque">
+                                                Save Changes
+                                            </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+    </div>
 <div class='profile actions-profile upload'>
   <div class='profile-background upload'></div>
   <div class='profile-card'>
