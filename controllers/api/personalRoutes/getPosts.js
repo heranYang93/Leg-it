@@ -18,6 +18,7 @@ router.get('/', async (req, res) => {
           model: Post,
           required: true,
           include: [
+            { model: User },
             {
               model: Like,
             },
@@ -30,7 +31,6 @@ router.get('/', async (req, res) => {
     });
     if (db_postsByUser) {
       const postsByUser = db_postsByUser.get({ plain: true });
-
       const postArr = postsByUser.posts;
       res.render('managePosts', {
         userName,
