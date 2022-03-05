@@ -31,8 +31,6 @@ router.get('/:id', async (req, res) => {
       return { thisPost, userName, userImage, otherTags };
     });
 
-    console.log(postArr);
-
     res.render(pageToRender, {
       tagName,
       postArr,
