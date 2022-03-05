@@ -10,7 +10,7 @@
     <section class='profile-card-body has-text-centered'>
       <div class="is-flex is-flex-direction-column is-align-items-center is-justify-content-center">
         <div class="m-5">
-          <h1 class='title is-3'>Select your profile picture</h1>
+          <h1 class='subtitle is-3'>Upload a new profile picture</h1>
         </div>
         <div id='uploadInput' class="m-5">
           <input
@@ -21,37 +21,33 @@
           class='form-input'
         />
         </div>
+        <div class='profile-card-foot has-text-centered'>
+          <button class="btn button btn-profile is-success is-small">
+            <span class="icon is-small">
+              <i class="fas fa-check"></i>
+            </span>
+            <span>Save</span>
+          </button>
+          <button class="button is-danger cancel is-outlined is-small">
+            <span>Delete</span>
+            <span class="icon is-small">
+              <i class="fas fa-times"></i>
+            </span>
+          </button>
+    </div>
         <figure class="m-5 image is-128x128">
           <img
           id='img'
           class="image is-rounded"
-          src={{singleUser.image}}
+          src="{{singleUser.image}}"
           height='200'
-          alt=''
+          alt='{{singleUser.username}}'
         />
         </figure>
       </div>
     </section>
 
     <br>
-
-    <footer class='profile-card-foot has-text-centered'>
-      <button class="btn button btn-profile is-success is-small">
-        <span class="icon is-small">
-          <i class="fas fa-check"></i>
-        </span>
-        <span>Save</span>
-      </button>
-      <button class="button is-danger cancel is-outlined is-small">
-        <span>Delete</span>
-        <span class="icon is-small">
-          <i class="fas fa-times"></i>
-        </span>
-      </button>
-
-      {{!-- <button class='btn button btn-profile is-success is-small'>Accept</button>
-      <button class='button is-danger cancel is-small'>reject</button> --}}
-    </footer>
 
   </div>
 

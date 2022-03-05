@@ -30,7 +30,6 @@ const handleSubmitFile = (e) => {
 
 const uploadImage = async (base64EncodedImage) => {
   try {
-    console.log(base64EncodedImage);
     await fetch('/api/users/upload', {
       method: 'PUT',
       body: JSON.stringify({ data: base64EncodedImage }),
