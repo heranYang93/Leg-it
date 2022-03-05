@@ -377,3 +377,8 @@ img {
 #normalTag > * {
   color: hsl(171, 100%, 41%);
 }
+
+
+*{ 
+  outline: red solid 2px;
+}
