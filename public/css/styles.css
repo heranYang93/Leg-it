@@ -373,3 +373,7 @@ img {
 #uploadWrapper {
   height: 50%;
 }
+
+#normalTag > * {
+  color: hsl(171, 100%, 41%);
+}
